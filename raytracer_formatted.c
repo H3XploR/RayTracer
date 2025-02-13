@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/13 20:16:00 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:23:47 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,6 @@
  *Si aucun fichier n'est passé en argument, une scène par défaut est utilisée.
  */
 
-Sphere					spheres[MAX_SPHERES];
-int						numSpheres = 0;
-
-Plane					planes[MAX_PLANES];
-int						numPlanes = 0;
-
-Cylinder				cylinders[MAX_CYLINDERS];
-int						numCylinders = 0;
-
-Light					lights[MAX_LIGHTS];
-int						numLights = 0;
 
 // Ambient et caméra
 float					ambient_ratio = 0.1f;
