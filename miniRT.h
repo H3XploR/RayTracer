@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 01:50:11 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:49:30 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define MAX_PLANES 128
 # define MAX_CYLINDERS 128
 # define MAX_LIGHTS 16
+# define MAX_AMBIENT 1
 
 // ----- Structures
 typedef struct s_vec3
@@ -97,10 +98,13 @@ typedef struct s_scene
 	t_plane		planes[MAX_PLANES];
 	t_cylinder	cylinders[MAX_CYLINDERS];
 	t_light		lights[MAX_LIGHTS];
+	t_ambient	ambient;
 	int			numSpheres;
 	int			numPlanes;
 	int			numCylinders;
 	int			numLights;
+	int			numAmbient;
+	const char 		*line;
 }				t_scene;
 
 //	Calcul de vecteur
@@ -112,6 +116,18 @@ t_vec3			vec3_cross(t_vec3 a, t_vec3 b);
 float			vec3_length(t_vec3 a);
 t_vec3			vec3_normalize(t_vec3 a);
 t_vec3			vec3_mul(t_vec3 a, t_vec3 b);
+
+//	Config de scene
 t_scene			create_scene(void);
-int		load_config(const char *filename);
+t_scene			load_config(const char *filename);
+t_scene			parsing_ambiant(const char *line, t_scene scene);
+t_scene			parsing_camera(const char *line, t_scene scene);
+t_scene			parsing_light(const char *line, t_scene scene);
+t_scene			parsing_sphere(const char *line, t_scene scene);
+t_scene			parsing_plane(const char *line, t_scene scene);
+t_scene			parsing_cylindre(const char *line, t_scene scene);
+
+//	Check
+inline int	check_tokens(char **tokens, int expected)
+inline void	check_if_max(t_scene scene, const int lower_than);
 #endif

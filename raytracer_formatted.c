@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 01:50:12 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:50:44 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ float					pitch = 0.0f; // vue de haut en bas en radians
 // ----- Parsing du fichier de configuration -----
 void	load_config(const char *filename)
 {
-
+//----	Jlaisse pour contextualiser -----
 	while (fgets(line, sizeof(line), fp))
 	{
 		// Ignore les lignes vides ou commençant par #

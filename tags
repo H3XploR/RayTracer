@@ -70,12 +70,14 @@
 !_TAG_ROLE_DESCRIPTION!C++!module	partOwner	/used for specifying a partition/
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
 HEIGHT	miniRT.h	/^# define HEIGHT /;"	d
+MAX_AMBIENT	miniRT.h	/^# define MAX_AMBIENT /;"	d
 MAX_CYLINDERS	miniRT.h	/^# define MAX_CYLINDERS /;"	d
 MAX_LIGHTS	miniRT.h	/^# define MAX_LIGHTS /;"	d
 MAX_PLANES	miniRT.h	/^# define MAX_PLANES /;"	d
 MAX_SPHERES	miniRT.h	/^# define MAX_SPHERES /;"	d
 MINIRT_H	miniRT.h	/^# define MINIRT_H$/;"	d
 WIDTH	miniRT.h	/^# define WIDTH /;"	d
+ambient	miniRT.h	/^	t_ambient	ambient;$/;"	m	struct:s_scene	typeref:typename:t_ambient
 ambient_color	miniRT.h	/^	t_vec3		ambient_color;$/;"	m	struct:s_ambient	typeref:typename:t_vec3
 ambient_color	raytracer_formatted.c	/^t_vec3					ambient_color = {0.1f, 0.1f, 0.1f};$/;"	v	typeref:typename:t_vec3
 ambient_ratio	miniRT.h	/^	float		ambient_ratio;$/;"	m	struct:s_ambient	typeref:typename:float
@@ -89,6 +91,8 @@ camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
+check_if_max	check.c	/^inline void check_if_max(t_scene scene, const int lower_than)$/;"	f	typeref:typename:void
+check_tokens	check.c	/^inline int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_light	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_plane	typeref:typename:t_vec3
@@ -104,15 +108,19 @@ intersectPlane	raytracer_formatted.c	/^float	intersectPlane(Ray ray, Plane p, t_
 intersectSphere	raytracer_formatted.c	/^float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 isInShadow	raytracer_formatted.c	/^bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos)$/;"	f	typeref:typename:bool
 lights	miniRT.h	/^	t_light		lights[MAX_LIGHTS];$/;"	m	struct:s_scene	typeref:typename:t_light[]
-load_config	config.c	/^int	load_config(const char *filename)$/;"	f	typeref:typename:int
+line	miniRT.h	/^	const char 		*line;$/;"	m	struct:s_scene	typeref:typename:const char *
+load_config	config.c	/^t_scene	load_config(const char *filename)$/;"	f	typeref:typename:t_scene
 load_config	raytracer_formatted.c	/^void	load_config(const char *filename)$/;"	f	typeref:typename:void
 main	raytracer_formatted.c	/^int	main(int argc, char *argv[])$/;"	f	typeref:typename:int
 normal	miniRT.h	/^	t_vec3		normal;$/;"	m	struct:s_plane	typeref:typename:t_vec3
+numAmbient	miniRT.h	/^	int			numAmbient;$/;"	m	struct:s_scene	typeref:typename:int
 numCylinders	miniRT.h	/^	int			numCylinders;$/;"	m	struct:s_scene	typeref:typename:int
 numLights	miniRT.h	/^	int			numLights;$/;"	m	struct:s_scene	typeref:typename:int
 numPlanes	miniRT.h	/^	int			numPlanes;$/;"	m	struct:s_scene	typeref:typename:int
 numSpheres	miniRT.h	/^	int			numSpheres;$/;"	m	struct:s_scene	typeref:typename:int
 origin	miniRT.h	/^	t_vec3		origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+parsing_ambiant	parsing_ambiant.c	/^t_scene	parsing_ambiant(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
+parsing_line	config.c	/^static inline t_scene	parsing_line(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene	file:
 pitch	miniRT.h	/^	float		pitch; \/\/ vue de haut en bas en radians$/;"	m	struct:s_camera	typeref:typename:float
 pitch	raytracer_formatted.c	/^float					pitch = 0.0f; \/\/ vue de haut en bas en radians$/;"	v	typeref:typename:float
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
