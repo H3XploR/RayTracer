@@ -76,12 +76,16 @@ MAX_PLANES	miniRT.h	/^# define MAX_PLANES /;"	d
 MAX_SPHERES	miniRT.h	/^# define MAX_SPHERES /;"	d
 MINIRT_H	miniRT.h	/^# define MINIRT_H$/;"	d
 WIDTH	miniRT.h	/^# define WIDTH /;"	d
+ambient_color	miniRT.h	/^	t_vec3		ambient_color;$/;"	m	struct:s_ambient	typeref:typename:t_vec3
 ambient_color	raytracer_formatted.c	/^t_vec3					ambient_color = {0.1f, 0.1f, 0.1f};$/;"	v	typeref:typename:t_vec3
+ambient_ratio	miniRT.h	/^	float		ambient_ratio;$/;"	m	struct:s_ambient	typeref:typename:float
 ambient_ratio	raytracer_formatted.c	/^float					ambient_ratio = 0.1f;$/;"	v	typeref:typename:float
 axis	miniRT.h	/^	t_vec3 axis;  \/\/ Axe normalisé$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 better_ray_tracer	README.md	/^# better_ray_tracer/;"	c
 brightness	miniRT.h	/^	float		brightness;$/;"	m	struct:s_light	typeref:typename:float
+camDir	miniRT.h	/^	t_vec3		camDir;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camDir	raytracer_formatted.c	/^t_vec3					camDir = {0.0f, 0.0f, -1.0f};$/;"	v	typeref:typename:t_vec3
+camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
@@ -92,6 +96,7 @@ color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 create_scene	scene.c	/^t_scene	create_scene(void)$/;"	f	typeref:typename:t_scene
 cylinders	miniRT.h	/^	t_cylinder	cylinders[MAX_CYLINDERS];$/;"	m	struct:s_scene	typeref:typename:t_cylinder[]
 dir	miniRT.h	/^	t_vec3		dir;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+fov	miniRT.h	/^	float		fov;$/;"	m	struct:s_camera	typeref:typename:float
 fov	raytracer_formatted.c	/^float					fov = 90.0f;$/;"	v	typeref:typename:float
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 intersectCylinder	raytracer_formatted.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
@@ -99,6 +104,7 @@ intersectPlane	raytracer_formatted.c	/^float	intersectPlane(Ray ray, Plane p, t_
 intersectSphere	raytracer_formatted.c	/^float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 isInShadow	raytracer_formatted.c	/^bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos)$/;"	f	typeref:typename:bool
 lights	miniRT.h	/^	t_light		lights[MAX_LIGHTS];$/;"	m	struct:s_scene	typeref:typename:t_light[]
+load_config	config.c	/^int	load_config(const char *filename)$/;"	f	typeref:typename:int
 load_config	raytracer_formatted.c	/^void	load_config(const char *filename)$/;"	f	typeref:typename:void
 main	raytracer_formatted.c	/^int	main(int argc, char *argv[])$/;"	f	typeref:typename:int
 normal	miniRT.h	/^	t_vec3		normal;$/;"	m	struct:s_plane	typeref:typename:t_vec3
@@ -107,12 +113,15 @@ numLights	miniRT.h	/^	int			numLights;$/;"	m	struct:s_scene	typeref:typename:int
 numPlanes	miniRT.h	/^	int			numPlanes;$/;"	m	struct:s_scene	typeref:typename:int
 numSpheres	miniRT.h	/^	int			numSpheres;$/;"	m	struct:s_scene	typeref:typename:int
 origin	miniRT.h	/^	t_vec3		origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
-pitch	raytracer_formatted.c	/^float					yaw = 0.0f, pitch = 0.0f; \/\/ en radians$/;"	v	typeref:typename:float
+pitch	miniRT.h	/^	float		pitch; \/\/ vue de haut en bas en radians$/;"	m	struct:s_camera	typeref:typename:float
+pitch	raytracer_formatted.c	/^float					pitch = 0.0f; \/\/ vue de haut en bas en radians$/;"	v	typeref:typename:float
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
 point	miniRT.h	/^	t_vec3		point;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 pos	miniRT.h	/^	t_vec3		pos;$/;"	m	struct:s_light	typeref:typename:t_vec3
 radius	miniRT.h	/^	float		radius;$/;"	m	struct:s_sphere	typeref:typename:float
 radius	miniRT.h	/^	float radius; \/\/ Demi-diamètre$/;"	m	struct:s_cylinder	typeref:typename:float
+s_ambient	miniRT.h	/^typedef struct s_ambient$/;"	s
+s_camera	miniRT.h	/^typedef struct s_camera$/;"	s
 s_cylinder	miniRT.h	/^typedef struct s_cylinder$/;"	s
 s_light	miniRT.h	/^typedef struct s_light$/;"	s
 s_plane	miniRT.h	/^typedef struct s_plane$/;"	s
@@ -121,6 +130,8 @@ s_scene	miniRT.h	/^typedef struct s_scene$/;"	s
 s_sphere	miniRT.h	/^typedef struct s_sphere$/;"	s
 s_vec3	miniRT.h	/^typedef struct s_vec3$/;"	s
 spheres	miniRT.h	/^	t_sphere	spheres[MAX_SPHERES];$/;"	m	struct:s_scene	typeref:typename:t_sphere[]
+t_ambient	miniRT.h	/^}				t_ambient;$/;"	t	typeref:struct:s_ambient
+t_camera	miniRT.h	/^}				t_camera;$/;"	t	typeref:struct:s_camera
 t_cylinder	miniRT.h	/^}				t_cylinder;$/;"	t	typeref:struct:s_cylinder
 t_light	miniRT.h	/^}				t_light;$/;"	t	typeref:struct:s_light
 t_plane	miniRT.h	/^}				t_plane;$/;"	t	typeref:struct:s_plane
@@ -139,5 +150,6 @@ vec3_scale	calcul_de_vecteur.c	/^t_vec3	vec3_scale(t_vec3 a, float s)$/;"	f	type
 vec3_sub	calcul_de_vecteur.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 x	miniRT.h	/^	float		x;$/;"	m	struct:s_vec3	typeref:typename:float
 y	miniRT.h	/^	float		y;$/;"	m	struct:s_vec3	typeref:typename:float
-yaw	raytracer_formatted.c	/^float					yaw = 0.0f, pitch = 0.0f; \/\/ en radians$/;"	v	typeref:typename:float
+yaw	miniRT.h	/^	float		yaw;\/\/ vue de gauche a droite$/;"	m	struct:s_camera	typeref:typename:float
+yaw	raytracer_formatted.c	/^float					yaw = 0.0f;\/\/ vue de gauche a droite$/;"	v	typeref:typename:float
 z	miniRT.h	/^	float		z;$/;"	m	struct:s_vec3	typeref:typename:float

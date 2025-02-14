@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/13 21:24:29 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/14 01:50:11 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,21 @@ typedef struct s_light
 	t_vec3		color;
 }				t_light;
 
+typedef struct s_ambient
+{
+	float		ambient_ratio;
+	t_vec3		ambient_color;
+}				t_ambient;
+
+typedef struct s_camera
+{
+	t_vec3		camPos;
+	t_vec3		camDir;
+	float		fov;
+	float		yaw;// vue de gauche a droite
+	float		pitch; // vue de haut en bas en radians
+}				t_camera;
+
 typedef struct s_scene
 {
 	t_sphere	spheres[MAX_SPHERES];
@@ -98,4 +113,5 @@ float			vec3_length(t_vec3 a);
 t_vec3			vec3_normalize(t_vec3 a);
 t_vec3			vec3_mul(t_vec3 a, t_vec3 b);
 t_scene			create_scene(void);
+int		load_config(const char *filename);
 #endif

@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/13 21:23:47 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/14 01:50:12 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,20 @@
  */
 
 
-// Ambient et caméra
+// Ambient et caméra (JE GARDE POUR FAIRE LA FONCTION UN EXEMPLE)
+
 float					ambient_ratio = 0.1f;
 t_vec3					ambient_color = {0.1f, 0.1f, 0.1f};
-
 t_vec3					camPos = {0.0f, 0.0f, 0.0f};
 t_vec3					camDir = {0.0f, 0.0f, -1.0f};
 float					fov = 90.0f;
-float					yaw = 0.0f, pitch = 0.0f; // en radians
+float					yaw = 0.0f;// vue de gauche a droite
+float					pitch = 0.0f; // vue de haut en bas en radians
 
 // ----- Parsing du fichier de configuration -----
 void	load_config(const char *filename)
 {
-	FILE	*fp;
-	char	line[256];
-			float ratio;
 
-	fp = fopen(filename, "r");
-	if (!fp)
-	{
-		fprintf(stderr, "Erreur : impossible d'ouvrir %s\n", filename);
-		return ;
-	}
 	while (fgets(line, sizeof(line), fp))
 	{
 		// Ignore les lignes vides ou commençant par #
