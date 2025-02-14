@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 18:49:30 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:45:21 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,12 @@ t_scene			parsing_light(const char *line, t_scene scene);
 t_scene			parsing_sphere(const char *line, t_scene scene);
 t_scene			parsing_plane(const char *line, t_scene scene);
 t_scene			parsing_cylindre(const char *line, t_scene scene);
+t_color			parse_color(const char *token, t_scene scene);
+
+//	Parsing utils
+inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, const int supposed_nb_token);
 
 //	Check
-inline int	check_tokens(char **tokens, int expected)
-inline void	check_if_max(t_scene scene, const int lower_than);
+inline int	check_tokens(char **tokens, const int to_test, int expected);
+inline void	check_if_max(t_scene scene, const int to_test, const int max);
 #endif

@@ -91,7 +91,7 @@ camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
-check_if_max	check.c	/^inline void check_if_max(t_scene scene, const int lower_than)$/;"	f	typeref:typename:void
+check_if_max	check.c	/^inline void check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
 check_tokens	check.c	/^inline int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_light	typeref:typename:t_vec3
@@ -102,6 +102,7 @@ cylinders	miniRT.h	/^	t_cylinder	cylinders[MAX_CYLINDERS];$/;"	m	struct:s_scene	
 dir	miniRT.h	/^	t_vec3		dir;$/;"	m	struct:s_ray	typeref:typename:t_vec3
 fov	miniRT.h	/^	float		fov;$/;"	m	struct:s_camera	typeref:typename:float
 fov	raytracer_formatted.c	/^float					fov = 90.0f;$/;"	v	typeref:typename:float
+get_tokens_secure	parsing_utils.c	/^inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, cons/;"	f	typeref:typename:char **
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 intersectCylinder	raytracer_formatted.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectPlane	raytracer_formatted.c	/^float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
@@ -119,7 +120,9 @@ numLights	miniRT.h	/^	int			numLights;$/;"	m	struct:s_scene	typeref:typename:int
 numPlanes	miniRT.h	/^	int			numPlanes;$/;"	m	struct:s_scene	typeref:typename:int
 numSpheres	miniRT.h	/^	int			numSpheres;$/;"	m	struct:s_scene	typeref:typename:int
 origin	miniRT.h	/^	t_vec3		origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+parse_color	parsing_color.c	/^t_color	parse_color(const char *token, t_scene scene)$/;"	f	typeref:typename:t_color
 parsing_ambiant	parsing_ambiant.c	/^t_scene	parsing_ambiant(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
+parsing_camera	parsing_camera.c	/^t_scene parsing_camera(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 parsing_line	config.c	/^static inline t_scene	parsing_line(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene	file:
 pitch	miniRT.h	/^	float		pitch; \/\/ vue de haut en bas en radians$/;"	m	struct:s_camera	typeref:typename:float
 pitch	raytracer_formatted.c	/^float					pitch = 0.0f; \/\/ vue de haut en bas en radians$/;"	v	typeref:typename:float
