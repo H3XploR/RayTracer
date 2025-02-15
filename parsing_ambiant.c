@@ -16,6 +16,7 @@
 t_scene	parsing_ambiant(const char *line, t_scene scene)
 {
 	const char **tokens = get_tokens_secure(scene, scene.numAmbient, MAX_AMBIENT, 3);
+	scene.token_if_exit = tokens;
 	scene.ambient.ambient_ratio = ft_atof(tokens[1]);
 	scene.ambient.ambient_color = parse_color(tokens[2], scene);
 	ft_free_array(tokens);

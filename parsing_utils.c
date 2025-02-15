@@ -17,9 +17,8 @@ inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int nu
 {
 	const int	result_if_max = check_if_max(scene, numObject, numObjectMax);
 	const char	**tokens = ft_split(scene.line_if_exit, ' ');
-	const int	result_check_tokens = check_tokens(tokens, supposed_nb_token);
 
-	if (!result_check_tokens)
+	if (!check_tokens(tokens, supposed_nb_token))
 	{
 		ft_free_array(tokens);
 		ft_putendl_fd("error", 2);

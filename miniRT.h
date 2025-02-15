@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include "libft.h"
 
 // ----- Taille ecran ----
 # define WIDTH 320
@@ -104,7 +105,9 @@ typedef struct s_scene
 	int			numCylinders;
 	int			numLights;
 	int			numAmbient;
-	const char 		*line;
+	const char 		*line_if_exit;
+	const int		fd_if_exit;
+	const char		**token_if_exit;
 }				t_scene;
 
 //	Calcul de vecteur
