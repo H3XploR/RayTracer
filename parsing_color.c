@@ -6,18 +6,32 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:05:49 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 20:25:45 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/15 18:34:45 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+
+static inline int	range_is_ok(char **token_color)
+{
+	int	i;
+
+	i = 0;
+	while (i < 3)
+	{
+		if (ft_atoi(token_color[i]) < 0 || ft_atoi(token_color[i]) > 255)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 t_color	parse_color(const char *token, t_scene scene)
 {
 	const char	**token_color = ft_split(token, ',');
 	t_color		color;
 
-	if (!check_tokens(token_color, 3))
+	if (!check_tokens(token_color, 3) || !range_is_ok(token_color))
 	{
 		ft_free_array(tokens_color);
 		ft_free_array(scene.token_if_exit);
@@ -29,4 +43,5 @@ t_color	parse_color(const char *token, t_scene scene)
 	color.r = ft_atoi(token_color[0]) / 255;
 	color.g = ft_atoi(token_color[1]) / 255;
 	color.b = ft_atoi(token_color[2]) / 255;
+	return (color);
 }
