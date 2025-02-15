@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 18:53:17 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:56:05 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ t_scene	load_config(const char *filename)
 		free(line);
 		parsing_line(line, scene);
 	}
+	return (scene);
 }

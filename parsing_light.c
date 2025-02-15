@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_camera.c                                   :+:      :+:    :+:   */
+/*   parsing_light.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 20:02:29 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/15 19:43:52 by yantoine         ###   ########.fr       */
+/*   Created: 2025/02/15 19:39:08 by yantoine          #+#    #+#             */
+/*   Updated: 2025/02/15 19:44:19 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minRT.h"
 
-t_scene parsing_camera(const char *line, t_scene scene)
+t_scene	parsing_light(const char *line, t_scene scene)
 {
-	const char **tokens = get_tokens_secure(scene, scene.numCamera, MAX_CAMERA, 4);
+	const char	**tokens = get_tokens_secure(scene, scene.numLights, MAX_LIGHTS, 4);
 	scene.token_if_exit = tokens;
-	scene.camera.camPos = parse_vector(tokens[1], scene);
-	scene.camera.camDir = parse_vector_normalize(tokens[2], scene);
-	scene.camera.fov = ft_atof(tokens[3]);
-	scene.camera.yaw = atan2f(camDir.x, -camDir.z);
-	scene.camera.pitch = asinf(camDir.y);
+	scene.lights[scene.numLights].pos = parse_vector(tokens[1], scene);
+	scene.lights[scene.numLights].brightness = ft_atof(tokens[2], scene);
+	scene.lights[scene.numLights].color = parse_color(tokens[3], scene);
 	ft_free_array(tokens);
-	scene.numCamera++;
+	scene.numLights++;
 	return (scene);
 }

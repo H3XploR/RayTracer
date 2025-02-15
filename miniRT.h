@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 20:45:21 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:36:06 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include "libft.h"
+# include "float.h"
 
 // ----- Taille ecran ----
 # define WIDTH 320
@@ -31,8 +32,9 @@
 # define MAX_CYLINDERS 128
 # define MAX_LIGHTS 16
 # define MAX_AMBIENT 1
+# define MAX_CAMERA 1
 
-// ----- Structures
+// ----- Espace 3d
 typedef struct s_vec3
 {
 	float		x;
@@ -100,6 +102,7 @@ typedef struct s_scene
 	t_cylinder	cylinders[MAX_CYLINDERS];
 	t_light		lights[MAX_LIGHTS];
 	t_ambient	ambient;
+	t_camera	camera;
 	int			numSpheres;
 	int			numPlanes;
 	int			numCylinders;
@@ -129,7 +132,10 @@ t_scene			parsing_light(const char *line, t_scene scene);
 t_scene			parsing_sphere(const char *line, t_scene scene);
 t_scene			parsing_plane(const char *line, t_scene scene);
 t_scene			parsing_cylindre(const char *line, t_scene scene);
-t_color			parse_color(const char *token, t_scene scene);
+t_vec3			parse_color(const char *token, t_scene scene);
+t_vec3			parse_vector(const char *token, t_scene scene);
+t_vec3			parse_vector_normalize(const char *token, t_scene scene);
+
 
 //	Parsing utils
 inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, const int supposed_nb_token);

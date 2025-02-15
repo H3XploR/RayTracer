@@ -71,6 +71,7 @@
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
 HEIGHT	miniRT.h	/^# define HEIGHT /;"	d
 MAX_AMBIENT	miniRT.h	/^# define MAX_AMBIENT /;"	d
+MAX_CAMERA	miniRT.h	/^# define MAX_CAMERA /;"	d
 MAX_CYLINDERS	miniRT.h	/^# define MAX_CYLINDERS /;"	d
 MAX_LIGHTS	miniRT.h	/^# define MAX_LIGHTS /;"	d
 MAX_PLANES	miniRT.h	/^# define MAX_PLANES /;"	d
@@ -89,6 +90,7 @@ camDir	miniRT.h	/^	t_vec3		camDir;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camDir	raytracer_formatted.c	/^t_vec3					camDir = {0.0f, 0.0f, -1.0f};$/;"	v	typeref:typename:t_vec3
 camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typeref:typename:t_vec3
+camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 check_if_max	check.c	/^inline void check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
@@ -121,10 +123,16 @@ numLights	miniRT.h	/^	int			numLights;$/;"	m	struct:s_scene	typeref:typename:int
 numPlanes	miniRT.h	/^	int			numPlanes;$/;"	m	struct:s_scene	typeref:typename:int
 numSpheres	miniRT.h	/^	int			numSpheres;$/;"	m	struct:s_scene	typeref:typename:int
 origin	miniRT.h	/^	t_vec3		origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
-parse_color	parsing_color.c	/^t_color	parse_color(const char *token, t_scene scene)$/;"	f	typeref:typename:t_color
+parse_color	parsing_color.c	/^t_vec3	parse_color(const char *token, t_scene scene)$/;"	f	typeref:typename:t_vec3
+parse_vector	parsing_vector.c	/^t_vec3	parse_vector(const char *token, t_scene scene)$/;"	f	typeref:typename:t_vec3
+parse_vector_normalize	parsing_vector.c	/^t_vec3	parse_vector_normalize(const char *token, t_scene scene)$/;"	f	typeref:typename:t_vec3
 parsing_ambiant	parsing_ambiant.c	/^t_scene	parsing_ambiant(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 parsing_camera	parsing_camera.c	/^t_scene parsing_camera(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
+parsing_cylinder	parsing_cylinder.c	/^t_scene	parsing_cylinder(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
+parsing_light	parsing_light.c	/^t_scene	parsing_light(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 parsing_line	config.c	/^static inline t_scene	parsing_line(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene	file:
+parsing_plane	parsing_plane.c	/^t_scene	parsing_plane(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
+parsing_sphere	parsing_sphere.c	/^t_scene	parsing_sphere(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 pitch	miniRT.h	/^	float		pitch; \/\/ vue de haut en bas en radians$/;"	m	struct:s_camera	typeref:typename:float
 pitch	raytracer_formatted.c	/^float					pitch = 0.0f; \/\/ vue de haut en bas en radians$/;"	v	typeref:typename:float
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
@@ -133,6 +141,7 @@ pos	miniRT.h	/^	t_vec3		pos;$/;"	m	struct:s_light	typeref:typename:t_vec3
 radius	miniRT.h	/^	float		radius;$/;"	m	struct:s_sphere	typeref:typename:float
 radius	miniRT.h	/^	float radius; \/\/ Demi-diamètre$/;"	m	struct:s_cylinder	typeref:typename:float
 range_is_ok	parsing_color.c	/^static inline int	range_is_ok(char **token_color)$/;"	f	typeref:typename:int	file:
+range_is_ok	parsing_vector.c	/^static inline int	range_is_ok(char **token_vector)$/;"	f	typeref:typename:int	file:
 s_ambient	miniRT.h	/^typedef struct s_ambient$/;"	s
 s_camera	miniRT.h	/^typedef struct s_camera$/;"	s
 s_cylinder	miniRT.h	/^typedef struct s_cylinder$/;"	s
