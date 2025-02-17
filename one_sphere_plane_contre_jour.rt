@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    config.rt                                          :+:      :+:    :+:    #
+#    one_sphere_plane.rt                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 19:27:37 by yantoine          #+#    #+#              #
-#    Updated: 2025/02/17 23:45:52 by yantoine         ###   ########.fr        #
+#    Updated: 2025/02/17 23:48:13 by yantoine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,14 @@
 A 0 255,255,255
 
 # Camera : position à (0,0,20) et orientée vers (0,0,-1) avec un FOV de 70°
-C 0,0,0 0,0,1 70
+C 0,0,0 0,0,0 70
 
 # Light : source lumineuse forte placée au-dessus de la scène
 L 11,40,-30 1 255,255,255
 
-# Sphere : une sphère rouge centrée à (0,0,0) avec un diamètre de 10
-sp 0,0,0 10 255,0,0
-sp 10,10,10 10 0,0,100
+sp 0,0,-20 10 0,0,100
 
 # Plane : un plan vert servant de sol, passant par (0,-5,0) et avec une normale vers le haut
 pl 0,-5,0 0,1,0 100,55,0
 
-# Cylinder : un cylindre bleu placé à (10,0,0), avec un axe vertical (0,1,0),
-# un diamètre de 8 et une hauteur de 20
-cy 10,0,0 0.5,0,0 8 20 0,0,255
-cy 10,0,0 0,1,0 8 20 0,0,255
 

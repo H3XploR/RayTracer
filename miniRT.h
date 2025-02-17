@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:35:34 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:42:16 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ typedef struct s_camera
 	t_vec3		camDir;
 	t_vec3		right;
 	t_vec3		up;
+	float		rot_speed;
+	float		move_speed;
 	float		fov;
 	float		yaw;// vue de gauche a droite
 	float		pitch; // vue de haut en bas en radians
