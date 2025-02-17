@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:22:27 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 19:23:41 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 22:55:44 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	mouse_move(int x, int y, t_app *app)
 	}
 	dx = x - last_x;
 	dy = y - last_y;
-	app->yaw += dx * app->mouse_sens;
-	app->pitch -= dy * app->mouse_sens;
+	app->scene.camera.yaw += dx * app->mouse_sens;
+	app->scene.camera.pitch -= dy * app->mouse_sens;
 	last_x = x;
 	last_y = y;
 	return (0);

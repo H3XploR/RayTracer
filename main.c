@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 22:09:13 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:10:31 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 static int	init_app_config(t_app *app, int argc, char **argv)
 {
+	t_scene scene;
+
 	if (argc > 1)
-		load_config(argv[1]);
+		scene = load_config(argv[1]);
 	app->win_width = WIDTH;
 	app->win_height = HEIGHT;
-	app->move_speed = 0.5f;
-	app->rot_speed = 0.03f;
+	app->scene.camera.move_speed = 0.5f;
+	app->scene.camera.rot_speed = 0.03f;
 	app->mouse_sens = 0.002f;
 	app->key_w = 0;
 	app->key_s = 0;
@@ -29,6 +31,7 @@ static int	init_app_config(t_app *app, int argc, char **argv)
 	app->key_right = 0;
 	app->key_up = 0;
 	app->key_down = 0;
+	app->scene = scene;
 	return (0);
 }
 
@@ -40,8 +43,8 @@ static int	init_mlx_and_image(t_app *app)
 		ft_putstr_fd("Erreur mlx_init\n", 2);
 		return (1);
 	}
-	app->win = mlx_new_window(app->mlx, app->win_width * 2,
-			app->win_height * 2, "Raytracer interactif");
+	app->win = mlx_new_window(app->mlx, app->win_width,
+			app->win_height, "Raytracer interactif");
 	if (!app->win)
 	{
 		ft_putstr_fd("Erreur mlx_new_window\n", 2);

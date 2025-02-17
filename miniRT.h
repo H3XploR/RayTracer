@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:55:55 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:10:49 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include "mlx.h"
 
 // ----- Taille ecran ----
-# define WIDTH 320
-# define HEIGHT 240
+# define WIDTH 640
+# define HEIGHT 480
 
 // ----- Tableaux de la scène -----
 # define MAX_SPHERES 128
@@ -92,6 +92,10 @@ typedef struct s_camera
 {
 	t_vec3		camPos;
 	t_vec3		camDir;
+	t_vec3		right;
+	t_vec3		up;
+	float		move_speed;
+	float		rot_speed;
 	float		fov;
 	float		yaw;// vue de gauche a droite
 	float		pitch; // vue de haut en bas en radians
@@ -136,16 +140,8 @@ typedef struct s_app
 	int		key_right;
 	int		key_up;
 	int		key_down;
-	float	move_speed;
-	float	rot_speed;
 	float	mouse_sens;
-	t_vec3	cam_pos;
-	t_vec3	cam_dir;
-	t_vec3	right;
-	t_vec3	cam_up;
-	float	fov;
-	float	yaw;
-	float	pitch;
+	t_scene scene;
 }				t_app;
 
 
@@ -237,8 +233,8 @@ int	mouse_move(int x, int y, t_app *app);
 
 //	Render
 void	update_camera(t_app *app);
-void	render_scene(t_app *app, t_scene scene);
-int	update_frame(t_app *app, t_scene scene);
+void	render_scene(t_app *app);
+int	update_frame(t_app *app);
 
 //	Array
 int	ft_arraylen(char **array);
