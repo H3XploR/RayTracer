@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:56:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/14 16:50:44 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:18:17 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,17 +165,7 @@ void	load_config(const char *filename)
 // ----- Fonctions d'intersection -----
 float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)
 {
-	t_vec3	oc;
-	float	a;
-	float	b;
-	float	c;
-	float	disc;
-	float	sqrtDisc;
-	float	t0;
-	float	t1;
-	float	t;
-	t_vec3	hitPoint;
-
+	
 	oc = vec3_sub(ray.origin, s.center);
 	a = vec3_dot(ray.dir, ray.dir);
 	b = 2.0f * vec3_dot(oc, ray.dir);

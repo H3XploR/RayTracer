@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:46:16 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/15 19:48:43 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:31:42 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,26 @@ t_scene	parsing_sphere(const char *line, t_scene scene)
 	scene.numSpheres++;
 	return (scene);
 }
+
+float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)
+{
+	t_calc	calc;
+	
+	calc.oc = vec3_sub(ray.origin, s.center);
+	calc.a = vec3_dot(ray.dir, ray.dir);
+	calc.b = 2.0f * vec3_dot(calc.oc, ray.dir);
+	c = vec3_dot(calc.oc, calc.oc) - s.radius * s.radius;
+	calc.disc = calc.b * calc.b - 4 * calc.a * c;
+	if (calc.disc < 0)
+		return (-1);
+	calc.sqrtDisc = sqrtf(calc.disc);
+	calc.t0 = (-calc.b - calc.sqrtDisc) / (2 * calc.a);
+	calc.t1 = (-calc.b + calc.sqrtDisc) / (2 * calc.a);
+	calc.t = (calc.t0 > 1e-3f) ? calc.t0 : calc.t1;
+	if (calc.t < 1e-3f)
+		return (-1);
+	calc.hitPoint = vec3_add(ray.origin, vec3_scale(ray.dir, calc.t));
+	*hitNormal = vec3_normalize(vec3_sub(calc.hitPoint, s.center));
+	return (calc.t);
+}
+

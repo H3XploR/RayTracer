@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/15 19:36:06 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:08:03 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,40 @@
 # define MAX_LIGHTS 16
 # define MAX_AMBIENT 1
 # define MAX_CAMERA 1
+
+// ----- Calcul d'interesction
+
+typdef struct s_calc
+{
+	t_vec3	oc;
+	float	a;
+	float	b;
+	float	c;
+	float	disc;
+	float	sqrtDisc;
+	float	t0;
+	float	t1;
+	float	t;
+	t_vec3	hitPoint;
+	t_vec3	d;
+	t_vec3	v;
+	float	d_dot_v;
+	float	oc_dot_v;
+	t_vec3	d_perp;
+	t_vec3	oc_perp;
+	float	t_side;
+	float	y;
+	float	t_cap;
+	float	t_bot;
+	float	dist;
+	float	t_top;
+	t_vec3	p;
+	t_vec3	cp;
+	float	dist;
+	float	t_final;
+	float	proj;
+	t_vec3	n;
+}				t_calc;
 
 // ----- Espace 3d
 typedef struct s_vec3
