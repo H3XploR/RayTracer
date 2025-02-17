@@ -17,7 +17,7 @@ int	check_tokens(char **tokens, int expected)
 	return (tokens && ft_arraylen(tokens) == expected);
 }
 
-void check_if_max(t_scene scene, const int to_test, const int max)
+void	check_if_max(t_scene scene, const int to_test, const int max)
 {
 	if (to_test >= max)
 	{

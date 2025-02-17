@@ -13,16 +13,16 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# include "float.h"
+# include "get_next_line.h"
+# include "libft.h"
+# include "mlx.h"
+# include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <fcntl.h>
-# include "get_next_line.h"
-# include "libft.h"
-# include "float.h"
-# include "mlx.h"
 
 // ----- Taille ecran ----
 # define WIDTH 640
@@ -97,8 +97,8 @@ typedef struct s_camera
 	float		rot_speed;
 	float		move_speed;
 	float		fov;
-	float		yaw;// vue de gauche a droite
-	float		pitch; // vue de haut en bas en radians
+	float yaw;   // vue de gauche a droite
+	float pitch; // vue de haut en bas en radians
 }				t_camera;
 
 typedef struct s_scene
@@ -115,75 +115,74 @@ typedef struct s_scene
 	int			numCamera;
 	int			numLights;
 	int			numAmbient;
-	char			*line_if_exit;
-	char			**token_if_exit;
-	int		fd_if_exit;
+	char		*line_if_exit;
+	char		**token_if_exit;
+	int			fd_if_exit;
 }				t_scene;
 
 // ----- Minilibx
 typedef struct s_app
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		*pixels;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	int		win_width;
-	int		win_height;
-	int		key_w;
-	int		key_s;
-	int		key_a;
-	int		key_d;
-	int		key_left;
-	int		key_right;
-	int		key_up;
-	int		key_down;
-	float	mouse_sens;
-	t_scene scene;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	int			*pixels;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			win_width;
+	int			win_height;
+	int			key_w;
+	int			key_s;
+	int			key_a;
+	int			key_d;
+	int			key_left;
+	int			key_right;
+	int			key_up;
+	int			key_down;
+	float		mouse_sens;
+	t_scene		scene;
 }				t_app;
-
 
 // ----- Calcul
 typedef struct s_calc
 {
-	t_vec3	oc;
-	float	a;
-	float	b;
-	float	c;
-	float	disc;
-	float	sqrtDisc;
-	float	t0;
-	float	t1;
-	float	t;
-	t_vec3	hitPoint;
-	t_vec3	d;
-	t_vec3	v;
-	float	d_dot_v;
-	float	oc_dot_v;
-	t_vec3	d_perp;
-	t_vec3	oc_perp;
-	float	t_side;
-	float	y;
-	float	t_cap;
-	float	t_bot;
-	float	t_top;
-	t_vec3	p;
-	t_vec3	cp;
-	float	dist;
-	float	t_final;
-	float	proj;
-	t_vec3	n;
-	float	ndc_x;
-	float	ndc_y;
-	float	aspect;
-	float	scale;
-	float	screen_x;
-	float	screen_y;
-	t_ray	ray;
-	t_vec3	ray_dir;
-	t_vec3	color;
+	t_vec3		oc;
+	float		a;
+	float		b;
+	float		c;
+	float		disc;
+	float		sqrtDisc;
+	float		t0;
+	float		t1;
+	float		t;
+	t_vec3		hitPoint;
+	t_vec3		d;
+	t_vec3		v;
+	float		d_dot_v;
+	float		oc_dot_v;
+	t_vec3		d_perp;
+	t_vec3		oc_perp;
+	float		t_side;
+	float		y;
+	float		t_cap;
+	float		t_bot;
+	float		t_top;
+	t_vec3		p;
+	t_vec3		cp;
+	float		dist;
+	float		t_final;
+	float		proj;
+	t_vec3		n;
+	float		ndc_x;
+	float		ndc_y;
+	float		aspect;
+	float		scale;
+	float		screen_x;
+	float		screen_y;
+	t_ray		ray;
+	t_vec3		ray_dir;
+	t_vec3		color;
 }				t_calc;
 
 //	Calcul de vecteur
@@ -209,49 +208,51 @@ t_vec3			parse_color(const char *token, t_scene scene);
 t_vec3			parse_vector(const char *token, t_scene scene);
 t_vec3			parse_vector_normalize(const char *token, t_scene scene);
 
-
 //	Parsing utils
-char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, const int supposed_nb_token);
+char			**get_tokens_secure(t_scene scene, const int numObject,
+					const int numObjectMax, const int supposed_nb_token);
 
 //	Check
-int	check_tokens(char **tokens, int expected);
-void	check_if_max(t_scene scene, const int to_test, const int max);
+int				check_tokens(char **tokens, int expected);
+void			check_if_max(t_scene scene, const int to_test, const int max);
 
 //	Intersection
-float	intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
-float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal);
-float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
-bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
-bool	intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal, t_vec3 *objColor, t_scene scene);
-t_vec3	calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor, t_scene scene);
-t_vec3	trace(t_ray ray, t_scene scene);
+float			intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
+float			intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal);
+float			intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
+bool			isInShadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
+bool			intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal,
+					t_vec3 *objColor, t_scene scene);
+t_vec3			calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
+					t_scene scene);
+t_vec3			trace(t_ray ray, t_scene scene);
 
 //	Peripherique
-int	key_press(int keycode, t_app *app);
-int	key_release(int keycode, t_app *app);
-int	mouse_move(int x, int y, t_app *app);
+int				key_press(int keycode, t_app *app);
+int				key_release(int keycode, t_app *app);
+int				mouse_move(int x, int y, t_app *app);
 
 //	Render
-void	update_camera(t_app *app);
-void	render_scene(t_app *app);
-int	update_frame(t_app *app);
+void			update_camera(t_app *app);
+void			render_scene(t_app *app);
+int				update_frame(t_app *app);
 
 //	Array
-int	ft_arraylen(char **array);
-void	ft_free_array(char **array);
+int				ft_arraylen(char **array);
+void			ft_free_array(char **array);
 
 //	Conversion
-float	ft_atof(char *str);
+float			ft_atof(char *str);
 
 //	Info
-void print_vec3(t_vec3 vec);
-void print_ray(t_ray ray);
-void print_sphere(t_sphere sphere);
-void print_plane(t_plane plane);
-void print_cylinder(t_cylinder cyl);
-void print_light(t_light light);
-void print_ambient(t_ambient amb);
-void print_camera(t_camera cam);
-void print_scene(t_scene scene);
+void			print_vec3(t_vec3 vec);
+void			print_ray(t_ray ray);
+void			print_sphere(t_sphere sphere);
+void			print_plane(t_plane plane);
+void			print_cylinder(t_cylinder cyl);
+void			print_light(t_light light);
+void			print_ambient(t_ambient amb);
+void			print_camera(t_camera cam);
+void			print_scene(t_scene scene);
 
 #endif

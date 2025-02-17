@@ -12,10 +12,9 @@
 
 #include "miniRT.h"
 
-
 t_scene	parsing_ambiant(t_scene scene)
 {
-	char **tokens;
+	char	**tokens;
 
 	tokens = get_tokens_secure(scene, scene.numAmbient, MAX_AMBIENT, 3);
 	scene.token_if_exit = tokens;

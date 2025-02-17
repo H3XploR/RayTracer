@@ -15,7 +15,8 @@
 /*
 float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 {
-	t_calc calc;
+	t_calc	calc;
+	char	**tokens;
 
 	calc.d = ray.dir;
 	calc.oc = vec3_sub(ray.origin, cy.center);
@@ -54,7 +55,8 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 		{
 			p = vec3_add(ray.origin, vec3_scale(calc.d, calc.t_bot));
 			cp = vec3_sub(p, cy.center);
-			calc.dist = vec3_length(vec3_sub(cp, vec3_scale(calc.v, vec3_dot(cp, calc.v))));
+			calc.dist = vec3_length(vec3_sub(cp, vec3_scale(calc.v, vec3_dot(cp,
+								calc.v))));
 			if (calc.dist <= cy.radius)
 				calc.t_cap = calc.t_bot;
 		}
@@ -63,8 +65,10 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 		{
 			p = vec3_add(ray.origin, vec3_scale(calc.d, t_top));
 			cp = vec3_sub(p, cy.center);
-			calc.dist = vec3_length(vec3_sub(cp, vec3_scale(calc.v, vec3_dot(cp, calc.v))));
-			if (calc.dist <= cy.radius && (calc.t_cap < 0 || t_top < calc.t_cap))
+			calc.dist = vec3_length(vec3_sub(cp, vec3_scale(calc.v, vec3_dot(cp,
+								calc.v))));
+			if (calc.dist <= cy.radius && (calc.t_cap < 0
+					|| t_top < calc.t_cap))
 				calc.t_cap = t_top;
 		}
 	}
@@ -89,17 +93,15 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 	{
 		*hitNormal = (calc.proj > 0) ? calc.v : vec3_scale(calc.v, -1);
 	}
-	return calc.t_final;
+	return (calc.t_final);
 }*/
-
 t_scene	parsing_cylindre(t_scene scene)
 {
-	char	**tokens;
-
 	tokens = get_tokens_secure(scene, scene.numCylinders, MAX_CYLINDERS, 6);
 	scene.token_if_exit = tokens;
 	scene.cylinders[scene.numCylinders].center = parse_vector(tokens[1], scene);
-	scene.cylinders[scene.numCylinders].axis = parse_vector_normalize(tokens[2], scene);
+	scene.cylinders[scene.numCylinders].axis = parse_vector_normalize(tokens[2],
+			scene);
 	scene.cylinders[scene.numCylinders].radius = ft_atof(tokens[3]);
 	scene.cylinders[scene.numCylinders].height = ft_atof(tokens[4]);
 	scene.cylinders[scene.numCylinders].color = parse_color(tokens[5], scene);
@@ -107,5 +109,3 @@ t_scene	parsing_cylindre(t_scene scene)
 	scene.numCylinders++;
 	return (scene);
 }
-
-

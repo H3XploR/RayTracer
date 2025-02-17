@@ -14,10 +14,10 @@
 
 static void	render_pixel(t_app *app, int x, int y)
 {
-	t_calc	calc;
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
+	t_calc			calc;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 
 	calc.ndc_x = (x + 0.5f) / app->win_width;
 	calc.ndc_y = (y + 0.5f) / app->win_height;
@@ -27,7 +27,7 @@ static void	render_pixel(t_app *app, int x, int y)
 	calc.screen_y = (1 - 2 * calc.ndc_y) * calc.scale;
 	calc.ray_dir = vec3_add(app->scene.camera.camDir,
 			vec3_add(vec3_scale(app->scene.camera.right, calc.screen_x),
-			vec3_scale(app->scene.camera.up, calc.screen_y)));
+				vec3_scale(app->scene.camera.up, calc.screen_y)));
 	calc.ray_dir = vec3_normalize(calc.ray_dir);
 	calc.ray.origin = app->scene.camera.camPos;
 	calc.ray.dir = calc.ray_dir;
@@ -35,7 +35,8 @@ static void	render_pixel(t_app *app, int x, int y)
 	r = (unsigned char)(fminf(calc.color.x, 1.0f) * 255);
 	g = (unsigned char)(fminf(calc.color.y, 1.0f) * 255);
 	b = (unsigned char)(fminf(calc.color.z, 1.0f) * 255);
-	app->pixels[y * app->win_width + x] = (255 << 24) | (r << 16) | (g << 8) | b;
+	app->pixels[y * app->win_width
+		+ x] = (255 << 24) | (r << 16) | (g << 8) | b;
 }
 
 void	render_scene(t_app *app)

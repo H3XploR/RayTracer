@@ -29,7 +29,7 @@ static inline int	range_is_ok(char **token_color)
 t_vec3	parse_color(const char *token, t_scene scene)
 {
 	char	**token_color;
-	t_vec3		color;
+	t_vec3	color;
 
 	token_color = ft_split(token, ',');
 	if (!check_tokens(token_color, 3) || !range_is_ok(token_color))

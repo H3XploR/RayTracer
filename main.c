@@ -14,7 +14,7 @@
 
 static int	init_app_config(t_app *app, int argc, char **argv)
 {
-	t_scene scene;
+	t_scene	scene;
 
 	if (argc > 1)
 		scene = load_config(argv[1]);
@@ -32,8 +32,8 @@ static int	init_mlx_and_image(t_app *app)
 		ft_putstr_fd("Erreur mlx_init\n", 2);
 		return (1);
 	}
-	app->win = mlx_new_window(app->mlx, app->win_width,
-			app->win_height, "Raytracer interactif");
+	app->win = mlx_new_window(app->mlx, app->win_width, app->win_height,
+			"Raytracer interactif");
 	if (!app->win)
 	{
 		ft_putstr_fd("Erreur mlx_new_window\n", 2);
@@ -45,8 +45,8 @@ static int	init_mlx_and_image(t_app *app)
 		ft_putstr_fd("Erreur mlx_new_image\n", 2);
 		return (1);
 	}
-	app->pixels = (int *)mlx_get_data_addr(app->img, &app->bpp,
-			&app->size_line, &app->endian);
+	app->pixels = (int *)mlx_get_data_addr(app->img, &app->bpp, &app->size_line,
+			&app->endian);
 	if (!app->pixels)
 	{
 		ft_putstr_fd("Erreur mlx_get_data_addr\n", 2);

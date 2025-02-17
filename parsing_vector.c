@@ -19,7 +19,8 @@ static inline int	range_is_ok(char **token_vector)
 	i = 0;
 	while (i < 3)
 	{
-		if (ft_atof(token_vector[i]) < -FLT_MAX || ft_atof(token_vector[i]) > FLT_MAX)
+		if (ft_atof(token_vector[i]) < -FLT_MAX
+			|| ft_atof(token_vector[i]) > FLT_MAX)
 			return (0);
 		i++;
 	}
@@ -29,7 +30,7 @@ static inline int	range_is_ok(char **token_vector)
 t_vec3	parse_vector(const char *token, t_scene scene)
 {
 	char	**token_vector;
-	t_vec3		vector;
+	t_vec3	vector;
 
 	token_vector = ft_split(token, ',');
 	if (!check_tokens(token_vector, 3) || !range_is_ok(token_vector))

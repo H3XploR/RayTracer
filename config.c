@@ -37,9 +37,9 @@ static inline t_scene	parsing_line(char *line, t_scene scene)
 // ----- Parsing du fichier de configuration -----
 t_scene	load_config(const char *filename)
 {
-	int			fd;
-	char		*line;
-	t_scene		scene;
+	int		fd;
+	char	*line;
+	t_scene	scene;
 
 	scene = create_scene();
 	fd = open(filename, O_RDONLY);

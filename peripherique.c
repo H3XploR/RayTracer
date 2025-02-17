@@ -77,4 +77,3 @@ int	mouse_move(int x, int y, t_app *app)
 	last_y = y;
 	return (0);
 }
-

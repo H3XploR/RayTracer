@@ -29,7 +29,7 @@ t_scene	parsing_sphere(t_scene scene)
 float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 {
 	t_calc	calc;
-	
+
 	calc.oc = vec3_sub(ray.origin, s.center);
 	calc.a = vec3_dot(ray.dir, ray.dir);
 	calc.b = 2.0f * vec3_dot(calc.oc, ray.dir);
@@ -47,4 +47,3 @@ float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 	*hitNormal = vec3_normalize(vec3_sub(calc.hitPoint, s.center));
 	return (calc.t);
 }
-

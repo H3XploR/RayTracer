@@ -12,12 +12,13 @@
 
 #include "miniRT.h"
 
-char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, const int supposed_nb_token)
+char	**get_tokens_secure(t_scene scene, const int numObject,
+		const int numObjectMax, const int supposed_nb_token)
 {
 	char	**tokens;
 
 	check_if_max(scene, numObject, numObjectMax);
- 	tokens = ft_split(scene.line_if_exit, ' ');
+	tokens = ft_split(scene.line_if_exit, ' ');
 	if (!check_tokens(tokens, supposed_nb_token))
 	{
 		ft_free_array(tokens);

@@ -19,7 +19,8 @@ t_scene	parsing_plane(t_scene scene)
 	tokens = get_tokens_secure(scene, scene.numPlanes, MAX_PLANES, 4);
 	scene.token_if_exit = tokens;
 	scene.planes[scene.numPlanes].point = parse_vector(tokens[1], scene);
-	scene.planes[scene.numPlanes].normal = parse_vector_normalize(tokens[2], scene);
+	scene.planes[scene.numPlanes].normal = parse_vector_normalize(tokens[2],
+			scene);
 	scene.planes[scene.numPlanes].color = parse_color(tokens[3], scene);
 	ft_free_array(tokens);
 	scene.numPlanes++;
@@ -40,4 +41,3 @@ float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal)
 	*hitNormal = p.normal;
 	return (t);
 }
-

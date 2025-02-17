@@ -12,9 +12,9 @@
 
 #include "miniRT.h"
 
-t_scene parsing_camera(t_scene scene)
+t_scene	parsing_camera(t_scene scene)
 {
-	char **tokens;
+	char	**tokens;
 
 	tokens = get_tokens_secure(scene, scene.numCamera, MAX_CAMERA, 4);
 	scene.token_if_exit = tokens;
