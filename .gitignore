@@ -1,0 +1,6 @@
+# Fichiers de swap Vim
+*.swp
+
+# Fichiers objets compilés
+*.o
+
