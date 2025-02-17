@@ -89,6 +89,7 @@ b	miniRT.h	/^	float	b;$/;"	m	struct:s_calc	typeref:typename:float
 better_ray_tracer	README.md	/^# better_ray_tracer/;"	c
 brightness	miniRT.h	/^	float		brightness;$/;"	m	struct:s_light	typeref:typename:float
 c	miniRT.h	/^	float	c;$/;"	m	struct:s_calc	typeref:typename:float
+calcLighting	trace.c	/^t_vec3 calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor) {$/;"	f	typeref:typename:t_vec3
 camDir	miniRT.h	/^	t_vec3		camDir;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camDir	raytracer_formatted.c	/^t_vec3					camDir = {0.0f, 0.0f, -1.0f};$/;"	v	typeref:typename:t_vec3
 camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
@@ -96,15 +97,18 @@ camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typ
 camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
+checkShadowCylinder	shadows.c	/^static bool checkShadowCylinder(const Ray shadowRay, float maxT, float epsilon) {$/;"	f	typeref:typename:bool	file:
+checkShadowPlane	shadows.c	/^static bool checkShadowPlane(const Ray shadowRay, float maxT, float epsilon) {$/;"	f	typeref:typename:bool	file:
+checkShadowSphere	shadows.c	/^static bool checkShadowSphere(const Ray shadowRay, float maxT, float epsilon) {$/;"	f	typeref:typename:bool	file:
 check_if_max	check.c	/^inline void check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
 check_tokens	check.c	/^inline int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_light	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
-compute_cap_intersection	parsing_cylinder.c	/^static void compute_cap_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
-compute_hit_normal	parsing_cylinder.c	/^static void compute_hit_normal(Ray ray, Cylinder cy, t_calc *calc, t_vec3 *hitNormal) {$/;"	f	typeref:typename:void	file:
-compute_side_intersection	parsing_cylinder.c	/^static void compute_side_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
+compute_cap_intersection	parsing_cylinder_utils.c	/^static void compute_cap_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
+compute_hit_normal	parsing_cylinder_utils.c	/^static void compute_hit_normal(Ray ray, Cylinder cy, t_calc *calc, t_vec3 *hitNormal) {$/;"	f	typeref:typename:void	file:
+compute_side_intersection	parsing_cylinder_utils.c	/^static void compute_side_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
 cp	miniRT.h	/^	t_vec3	cp;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 create_scene	scene.c	/^t_scene	create_scene(void)$/;"	f	typeref:typename:t_scene
 cylinders	miniRT.h	/^	t_cylinder	cylinders[MAX_CYLINDERS];$/;"	m	struct:s_scene	typeref:typename:t_cylinder[]
@@ -120,14 +124,16 @@ fov	raytracer_formatted.c	/^float					fov = 90.0f;$/;"	v	typeref:typename:float
 get_tokens_secure	parsing_utils.c	/^inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, cons/;"	f	typeref:typename:char **
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 hitPoint	miniRT.h	/^	t_vec3	hitPoint;$/;"	m	struct:s_calc	typeref:typename:t_vec3
-init_intersection	parsing_cylinder.c	/^static int init_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:int	file:
-intersectCylinder	parsing_cylinder.c	/^float intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal) {$/;"	f	typeref:typename:float
+init_intersection	parsing_cylinder_utils.c	/^static int init_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:int	file:
+intersectCylinder	parsing_cylinder_utils.c	/^float intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal) {$/;"	f	typeref:typename:float
 intersectCylinder	raytracer_formatted.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
+intersectObjects	trace.c	/^bool intersectObjects(Ray ray, float *tMin, t_vec3 *hitNormal, t_vec3 *objColor) {$/;"	f	typeref:typename:bool
 intersectPlane	parsing_plane.c	/^float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectPlane	raytracer_formatted.c	/^float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectSphere	parsing_sphere.c	/^float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectSphere	raytracer_formatted.c	/^float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 isInShadow	raytracer_formatted.c	/^bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos)$/;"	f	typeref:typename:bool
+isInShadow	shadows.c	/^bool isInShadow(t_vec3 hitPoint, t_vec3 lightPos) {$/;"	f	typeref:typename:bool
 lights	miniRT.h	/^	t_light		lights[MAX_LIGHTS];$/;"	m	struct:s_scene	typeref:typename:t_light[]
 line_if_exit	miniRT.h	/^	const char 		*line_if_exit;$/;"	m	struct:s_scene	typeref:typename:const char *
 load_config	config.c	/^t_scene	load_config(const char *filename)$/;"	f	typeref:typename:t_scene
@@ -175,7 +181,7 @@ s_ray	miniRT.h	/^typedef struct s_ray$/;"	s
 s_scene	miniRT.h	/^typedef struct s_scene$/;"	s
 s_sphere	miniRT.h	/^typedef struct s_sphere$/;"	s
 s_vec3	miniRT.h	/^typedef struct s_vec3$/;"	s
-select_final_intersection	parsing_cylinder.c	/^static float select_final_intersection(t_calc *calc) {$/;"	f	typeref:typename:float	file:
+select_final_intersection	parsing_cylinder_utils.c	/^static float select_final_intersection(t_calc *calc) {$/;"	f	typeref:typename:float	file:
 spheres	miniRT.h	/^	t_sphere	spheres[MAX_SPHERES];$/;"	m	struct:s_scene	typeref:typename:t_sphere[]
 sqrtDisc	miniRT.h	/^	float	sqrtDisc;$/;"	m	struct:s_calc	typeref:typename:float
 t	miniRT.h	/^	float	t;$/;"	m	struct:s_calc	typeref:typename:float
@@ -198,6 +204,7 @@ t_top	miniRT.h	/^	float	t_top;$/;"	m	struct:s_calc	typeref:typename:float
 t_vec3	miniRT.h	/^}				t_vec3;$/;"	t	typeref:struct:s_vec3
 token_if_exit	miniRT.h	/^	const char		**token_if_exit;$/;"	m	struct:s_scene	typeref:typename:const char **
 trace	raytracer_formatted.c	/^t_vec3	trace(Ray ray)$/;"	f	typeref:typename:t_vec3
+trace	trace.c	/^t_vec3 trace(Ray ray) {$/;"	f	typeref:typename:t_vec3
 v	miniRT.h	/^	t_vec3	v;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 vec3_add	calcul_de_vecteur.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 vec3_cross	calcul_de_vecteur.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3

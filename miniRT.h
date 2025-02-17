@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 18:19:10 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:58:31 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,4 +176,10 @@ inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int nu
 //	Check
 inline int	check_tokens(char **tokens, const int to_test, int expected);
 inline void	check_if_max(t_scene scene, const int to_test, const int max);
+
+//	Intersection
+float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal);
+float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal);
+float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal);
+bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos);
 #endif
