@@ -550,7 +550,6 @@ mouse_sens	miniRT.h	/^	float	mouse_sens;$/;"	m	struct:s_app	typeref:typename:flo
 mouse_win1	minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
 mouse_win2	minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
 mouse_win3	minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
-move_speed	miniRT.h	/^	float		move_speed;$/;"	m	struct:s_camera	typeref:typename:float
 n	miniRT.h	/^	t_vec3	n;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 name	minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
 name	minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
@@ -588,6 +587,15 @@ pixels	miniRT.h	/^	int		*pixels;$/;"	m	struct:s_app	typeref:typename:int *
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
 point	miniRT.h	/^	t_vec3		point;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 pos	miniRT.h	/^	t_vec3		pos;$/;"	m	struct:s_light	typeref:typename:t_vec3
+print_ambient	print.c	/^void print_ambient(t_ambient amb) {$/;"	f	typeref:typename:void
+print_camera	print.c	/^void print_camera(t_camera cam) {$/;"	f	typeref:typename:void
+print_cylinder	print.c	/^void print_cylinder(t_cylinder cyl) {$/;"	f	typeref:typename:void
+print_light	print.c	/^void print_light(t_light light) {$/;"	f	typeref:typename:void
+print_plane	print.c	/^void print_plane(t_plane plane) {$/;"	f	typeref:typename:void
+print_ray	print.c	/^void print_ray(t_ray ray) {$/;"	f	typeref:typename:void
+print_scene	print.c	/^void print_scene(t_scene scene) {$/;"	f	typeref:typename:void
+print_sphere	print.c	/^void print_sphere(t_sphere sphere) {$/;"	f	typeref:typename:void
+print_vec3	print.c	/^void print_vec3(t_vec3 vec) {$/;"	f	typeref:typename:void
 printf_fd	libft/printf_fd.c	/^int	printf_fd(int fd, const char *str, ...)$/;"	f	typeref:typename:int
 private_cmap	minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 proj	miniRT.h	/^	float	proj;$/;"	m	struct:s_calc	typeref:typename:float
@@ -609,7 +617,6 @@ render_pixel	render.c	/^static void	render_pixel(t_app *app, int x, int y)$/;"	f
 render_scene	render.c	/^void	render_scene(t_app *app)$/;"	f	typeref:typename:void
 right	miniRT.h	/^	t_vec3		right;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
-rot_speed	miniRT.h	/^	float		rot_speed;$/;"	m	struct:s_camera	typeref:typename:float
 s_ambient	miniRT.h	/^typedef struct s_ambient$/;"	s
 s_app	miniRT.h	/^typedef struct s_app$/;"	s
 s_calc	miniRT.h	/^typedef struct s_calc$/;"	s

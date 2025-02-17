@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:10:31 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:35:02 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,6 @@ static int	init_app_config(t_app *app, int argc, char **argv)
 		scene = load_config(argv[1]);
 	app->win_width = WIDTH;
 	app->win_height = HEIGHT;
-	app->scene.camera.move_speed = 0.5f;
-	app->scene.camera.rot_speed = 0.03f;
-	app->mouse_sens = 0.002f;
-	app->key_w = 0;
-	app->key_s = 0;
-	app->key_a = 0;
-	app->key_d = 0;
-	app->key_left = 0;
-	app->key_right = 0;
-	app->key_up = 0;
-	app->key_down = 0;
 	app->scene = scene;
 	return (0);
 }

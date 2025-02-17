@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:52:57 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:28:25 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ t_scene	load_config(const char *filename)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		parsing_line(line, scene);
+		scene = parsing_line(line, scene);
 		free(line);
 	}
+	printf("AFFICHE CONFIG\n");
+	print_scene(scene);
 	return (scene);
 }

@@ -6,7 +6,7 @@
 #    By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 19:27:37 by yantoine          #+#    #+#              #
-#    Updated: 2025/02/13 19:37:39 by yantoine         ###   ########.fr        #
+#    Updated: 2025/02/17 23:33:44 by yantoine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 A 0 255,255,255
 
 # Camera : position à (0,0,20) et orientée vers (0,0,-1) avec un FOV de 70°
-C 10,20,20 0,0,-1 70
+C 10,0,-30 0,0,1 70
 
 # Light : source lumineuse forte placée au-dessus de la scène
 L 11,40,-30 1 255,255,255

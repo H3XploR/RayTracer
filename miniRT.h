@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:10:49 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:35:34 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ typedef struct s_camera
 	t_vec3		camDir;
 	t_vec3		right;
 	t_vec3		up;
-	float		move_speed;
-	float		rot_speed;
 	float		fov;
 	float		yaw;// vue de gauche a droite
 	float		pitch; // vue de haut en bas en radians
@@ -239,6 +237,19 @@ int	update_frame(t_app *app);
 //	Array
 int	ft_arraylen(char **array);
 void	ft_free_array(char **array);
+
 //	Conversion
 float	ft_atof(char *str);
+
+//	Info
+void print_vec3(t_vec3 vec);
+void print_ray(t_ray ray);
+void print_sphere(t_sphere sphere);
+void print_plane(t_plane plane);
+void print_cylinder(t_cylinder cyl);
+void print_light(t_light light);
+void print_ambient(t_ambient amb);
+void print_camera(t_camera cam);
+void print_scene(t_scene scene);
+
 #endif
