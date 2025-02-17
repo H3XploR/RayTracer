@@ -102,6 +102,9 @@ color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_light	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
+compute_cap_intersection	parsing_cylinder.c	/^static void compute_cap_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
+compute_hit_normal	parsing_cylinder.c	/^static void compute_hit_normal(Ray ray, Cylinder cy, t_calc *calc, t_vec3 *hitNormal) {$/;"	f	typeref:typename:void	file:
+compute_side_intersection	parsing_cylinder.c	/^static void compute_side_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
 cp	miniRT.h	/^	t_vec3	cp;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 create_scene	scene.c	/^t_scene	create_scene(void)$/;"	f	typeref:typename:t_scene
 cylinders	miniRT.h	/^	t_cylinder	cylinders[MAX_CYLINDERS];$/;"	m	struct:s_scene	typeref:typename:t_cylinder[]
@@ -117,7 +120,8 @@ fov	raytracer_formatted.c	/^float					fov = 90.0f;$/;"	v	typeref:typename:float
 get_tokens_secure	parsing_utils.c	/^inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, cons/;"	f	typeref:typename:char **
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 hitPoint	miniRT.h	/^	t_vec3	hitPoint;$/;"	m	struct:s_calc	typeref:typename:t_vec3
-intersectCylinder	parsing_cylinder.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
+init_intersection	parsing_cylinder.c	/^static int init_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:int	file:
+intersectCylinder	parsing_cylinder.c	/^float intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal) {$/;"	f	typeref:typename:float
 intersectCylinder	raytracer_formatted.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectPlane	parsing_plane.c	/^float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectPlane	raytracer_formatted.c	/^float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
@@ -171,6 +175,7 @@ s_ray	miniRT.h	/^typedef struct s_ray$/;"	s
 s_scene	miniRT.h	/^typedef struct s_scene$/;"	s
 s_sphere	miniRT.h	/^typedef struct s_sphere$/;"	s
 s_vec3	miniRT.h	/^typedef struct s_vec3$/;"	s
+select_final_intersection	parsing_cylinder.c	/^static float select_final_intersection(t_calc *calc) {$/;"	f	typeref:typename:float	file:
 spheres	miniRT.h	/^	t_sphere	spheres[MAX_SPHERES];$/;"	m	struct:s_scene	typeref:typename:t_sphere[]
 sqrtDisc	miniRT.h	/^	float	sqrtDisc;$/;"	m	struct:s_calc	typeref:typename:float
 t	miniRT.h	/^	float	t;$/;"	m	struct:s_calc	typeref:typename:float

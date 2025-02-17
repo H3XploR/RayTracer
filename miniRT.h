@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 18:08:03 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:19:10 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typdef struct s_calc
 	float	y;
 	float	t_cap;
 	float	t_bot;
-	float	dist;
 	float	t_top;
 	t_vec3	p;
 	t_vec3	cp;
