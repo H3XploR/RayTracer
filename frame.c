@@ -6,16 +6,16 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:30:45 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 19:30:59 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:55:36 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-int	update_frame(t_app *app)
+int	update_frame(t_app *app, t_scene scene)
 {
 	update_camera(app);
-	render_scene(app);
+	render_scene(app, scene);
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 	return (0);
 }

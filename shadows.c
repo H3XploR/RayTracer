@@ -6,19 +6,19 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:58:42 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 19:03:01 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:44:07 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
 // Vérifie les intersections avec les sphères
-static bool checkShadowSphere(const Ray shadowRay, float maxT, float epsilon) {
+static bool checkShadowSphere(const t_ray shadowRay, float maxT, float epsilon, t_scene scene) {
     int i = 0;
     t_vec3 dummy;
     float t;
-    while (i < numSpheres) {
-        t = intersectSphere(shadowRay, spheres[i], &dummy);
+    while (i < scene.numSpheres) {
+        t = intersectSphere(shadowRay, scene.spheres[i], &dummy);
         if (t > epsilon && t < maxT)
             return true;
         i++;
@@ -27,12 +27,12 @@ static bool checkShadowSphere(const Ray shadowRay, float maxT, float epsilon) {
 }
 
 // Vérifie les intersections avec les plans
-static bool checkShadowPlane(const Ray shadowRay, float maxT, float epsilon) {
+static bool checkShadowPlane(const t_ray shadowRay, float maxT, float epsilon, t_scene scene) {
     int i = 0;
     t_vec3 dummy;
     float t;
-    while (i < numPlanes) {
-        t = intersectPlane(shadowRay, planes[i], &dummy);
+    while (i < scene.numPlanes) {
+        t = intersectPlane(shadowRay, scene.planes[i], &dummy);
         if (t > epsilon && t < maxT)
             return true;
         i++;
@@ -41,12 +41,12 @@ static bool checkShadowPlane(const Ray shadowRay, float maxT, float epsilon) {
 }
 
 // Vérifie les intersections avec les cylindres
-static bool checkShadowCylinder(const Ray shadowRay, float maxT, float epsilon) {
+static bool checkShadowCylinder(const t_ray shadowRay, float maxT, float epsilon, t_scene scene) {
     int i = 0;
     t_vec3 dummy;
     float t;
-    while (i < numCylinders) {
-        t = intersectCylinder(shadowRay, cylinders[i], &dummy);
+    while (i < scene.numCylinders) {
+        t = intersectCylinder(shadowRay, scene.cylinders[i], &dummy);
         if (t > epsilon && t < maxT)
             return true;
         i++;
@@ -55,20 +55,20 @@ static bool checkShadowCylinder(const Ray shadowRay, float maxT, float epsilon) 
 }
 
 // Fonction principale qui détermine si le point est dans l'ombre
-bool isInShadow(t_vec3 hitPoint, t_vec3 lightPos) {
+bool isInShadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene) {
     const float epsilon = 1e-3f;
     t_vec3 toLight = vec3_sub(lightPos, hitPoint);
     float maxT = vec3_length(toLight);
     t_vec3 L = vec3_normalize(toLight);
-    Ray shadowRay;
+    t_ray shadowRay;
     shadowRay.origin = vec3_add(hitPoint, vec3_scale(L, epsilon));
-    shadowRay.direction = L;
+    shadowRay.dir = L;
 
-    if (checkShadowSphere(shadowRay, maxT, epsilon))
+    if (checkShadowSphere(shadowRay, maxT, epsilon, scene))
         return true;
-    if (checkShadowPlane(shadowRay, maxT, epsilon))
+    if (checkShadowPlane(shadowRay, maxT, epsilon, scene))
         return true;
-    if (checkShadowCylinder(shadowRay, maxT, epsilon))
+    if (checkShadowCylinder(shadowRay, maxT, epsilon, scene))
         return true;
     
     return false;

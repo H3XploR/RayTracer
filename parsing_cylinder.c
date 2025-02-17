@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:54:13 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 18:55:52 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 22:02:43 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,16 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 	return calc.t_final;
 }*/
 
-t_scene	parsing_cylinder(const char *line, t_scene scene)
+t_scene	parsing_cylindre(t_scene scene)
 {
-	const char	**tokens = get_tokens_secure(scene, scene.numCylinders, MAX_CYLINDERS, 6);
+	char	**tokens;
+
+	tokens = get_tokens_secure(scene, scene.numCylinders, MAX_CYLINDERS, 6);
 	scene.token_if_exit = tokens;
 	scene.cylinders[scene.numCylinders].center = parse_vector(tokens[1], scene);
 	scene.cylinders[scene.numCylinders].axis = parse_vector_normalize(tokens[2], scene);
-	scene.cylinders[scene.numCylinders].radius = parse_float(tokens[3], scene);
-	scene.cylinders[scene.numCylinders].height = parse_float(tokens[4], scene);
+	scene.cylinders[scene.numCylinders].radius = ft_atof(tokens[3]);
+	scene.cylinders[scene.numCylinders].height = ft_atof(tokens[4]);
 	scene.cylinders[scene.numCylinders].color = parse_color(tokens[5], scene);
 	ft_free_array(tokens);
 	scene.numCylinders++;

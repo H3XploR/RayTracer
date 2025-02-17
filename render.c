@@ -6,15 +6,18 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:24:30 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 19:52:46 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:54:39 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-static void	render_pixel(t_app *app, int x, int y)
+static void	render_pixel(t_app *app, int x, int y, t_scene scene)
 {
 	t_calc	calc;
+	unsigned char r;
+	unsigned char g;
+	unsigned char b;
 
 	calc.ndc_x = (x + 0.5f) / app->win_width;
 	calc.ndc_y = (y + 0.5f) / app->win_height;
@@ -28,14 +31,14 @@ static void	render_pixel(t_app *app, int x, int y)
 	calc.ray_dir = vec3_normalize(calc.ray_dir);
 	calc.ray.origin = app->cam_pos;
 	calc.ray.dir = calc.ray_dir;
-	calc.color = trace(calc.ray);
-	calc.r = (unsigned char)(fminf(calc.color.x, 1.0f) * 255);
-	calc.g = (unsigned char)(fminf(calc.color.y, 1.0f) * 255);
-	calc.b = (unsigned char)(fminf(calc.color.z, 1.0f) * 255);
-	app->pixels[y * app->win_width + x] = (255 << 24) | (calc.r << 16) | (calc.g << 8) | calc.b;
+	calc.color = trace(calc.ray, scene);
+	r = (unsigned char)(fminf(calc.color.x, 1.0f) * 255);
+	g = (unsigned char)(fminf(calc.color.y, 1.0f) * 255);
+	b = (unsigned char)(fminf(calc.color.z, 1.0f) * 255);
+	app->pixels[y * app->win_width + x] = (255 << 24) | (r << 16) | (g << 8) | b;
 }
 
-void	render_scene(t_app *app)
+void	render_scene(t_app *app, t_scene scene)
 {
 	int	y;
 	int	x;
@@ -46,7 +49,7 @@ void	render_scene(t_app *app)
 		x = 0;
 		while (x < app->win_width)
 		{
-			render_pixel(app, x, y);
+			render_pixel(app, x, y, scene);
 			x++;
 		}
 		y++;

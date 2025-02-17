@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 19:58:12 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 22:09:13 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	main(int argc, char **argv)
 {
 	t_app	app;
 
+	ft_bzero(&app, sizeof(t_app));
 	init_app_config(&app, argc, argv);
 	if (init_mlx_and_image(&app))
 		return (1);

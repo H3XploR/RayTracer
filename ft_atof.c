@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 20:23:21 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:34:12 by yantoine         ###   ########.fr       */
+/*   Created: 2025/02/17 21:19:17 by yantoine          #+#    #+#             */
+/*   Updated: 2025/02/17 21:20:13 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, const int supposed_nb_token)
+float	ft_atof(char *str)
 {
-	char	**tokens;
+	float	res;
+	float	dec;
+	int		sign;
 
-	check_if_max(scene, numObject, numObjectMax);
- 	tokens = ft_split(scene.line_if_exit, ' ');
-	if (!check_tokens(tokens, supposed_nb_token))
+	res = 0;
+	dec = 0;
+	sign = 1;
+	if (*str == '-')
 	{
-		ft_free_array(tokens);
-		ft_putendl_fd("error", 2);
-		free(scene.line_if_exit);
-		close(scene.fd_if_exit);
-		exit(1);
+		sign = -1;
+		str++;
 	}
-	return (tokens);
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	if (*str == '.')
+	{
+		str++;
+		while (*str >= '0' && *str <= '9')
+		{
+			dec = dec * 10 + *str - '0';
+			str++;
+		}
+	}
+	return (sign * (res + dec / pow(10, ft_strlen(str))));
 }

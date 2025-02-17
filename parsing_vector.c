@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:16:01 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/15 19:36:24 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:35:12 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ static inline int	range_is_ok(char **token_vector)
 
 t_vec3	parse_vector(const char *token, t_scene scene)
 {
-	const char	**token_vector = ft_split(token, ',');
+	char	**token_vector;
 	t_vec3		vector;
 
+	token_vector = ft_split(token, ',');
 	if (!check_tokens(token_vector, 3) || !range_is_ok(token_vector))
 	{
 		ft_free_array(token_vector);
@@ -43,7 +44,7 @@ t_vec3	parse_vector(const char *token, t_scene scene)
 	vector.x = ft_atof(token_vector[0]);
 	vector.y = ft_atof(token_vector[1]);
 	vector.z = ft_atof(token_vector[2]);
-	ft_free_array(tokens_vector);
+	ft_free_array(token_vector);
 	return (vector);
 }
 
