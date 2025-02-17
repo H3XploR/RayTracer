@@ -6,15 +6,15 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 18:58:31 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:53:54 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include <SDL2/SDL.h>
 # include <math.h>
+#include "mlx.h"
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -34,9 +34,42 @@
 # define MAX_AMBIENT 1
 # define MAX_CAMERA 1
 
-// ----- Calcul d'interesction
+// ----- Minilibx
+typedef struct s_app
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		*pixels;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		win_width;
+	int		win_height;
+	int		key_w;
+	int		key_s;
+	int		key_a;
+	int		key_d;
+	int		key_left;
+	int		key_right;
+	int		key_up;
+	int		key_down;
+	float	move_speed;
+	float	rot_speed;
+	float	mouse_sens;
+	t_vec3	cam_pos;
+	t_vec3	cam_dir;
+	t_vec3	right;
+	t_vec3	cam_up;
+	float	fov;
+	float	yaw;
+	float	pitch;
+}				t_app;
 
-typdef struct s_calc
+
+// ----- Calcul
+
+typedef struct s_calc
 {
 	t_vec3	oc;
 	float	a;
@@ -65,6 +98,17 @@ typdef struct s_calc
 	float	t_final;
 	float	proj;
 	t_vec3	n;
+	float	ndc_x;
+	float	ndc_y;
+	float	aspect;
+	float	scale;
+	float	screen_x;
+	float	screen_y;
+	t_vec3	ray_dir;
+	t_vec3	color;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 }				t_calc;
 
 // ----- Espace 3d
@@ -182,4 +226,14 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal);
 float	intersectPlane(Ray ray, Plane p, t_vec3 *hitNormal);
 float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal);
 bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos);
+
+//	Peripherique
+int	key_press(int keycode, t_app *app);
+int	key_release(int keycode, t_app *app);
+int	mouse_move(int x, int y, t_app *app);
+
+//	Render
+void	update_camera(t_app *app);
+void	render_scene(t_app *app);
+int	update_frame(t_app *app);
 #endif

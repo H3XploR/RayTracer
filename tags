@@ -84,9 +84,12 @@ ambient_color	miniRT.h	/^	t_vec3		ambient_color;$/;"	m	struct:s_ambient	typeref:
 ambient_color	raytracer_formatted.c	/^t_vec3					ambient_color = {0.1f, 0.1f, 0.1f};$/;"	v	typeref:typename:t_vec3
 ambient_ratio	miniRT.h	/^	float		ambient_ratio;$/;"	m	struct:s_ambient	typeref:typename:float
 ambient_ratio	raytracer_formatted.c	/^float					ambient_ratio = 0.1f;$/;"	v	typeref:typename:float
+aspect	miniRT.h	/^	float	aspect;$/;"	m	struct:s_calc	typeref:typename:float
 axis	miniRT.h	/^	t_vec3 axis;  \/\/ Axe normalisé$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 b	miniRT.h	/^	float	b;$/;"	m	struct:s_calc	typeref:typename:float
+b	miniRT.h	/^	unsigned char	b;$/;"	m	struct:s_calc	typeref:typename:unsigned char
 better_ray_tracer	README.md	/^# better_ray_tracer/;"	c
+bpp	miniRT.h	/^	int		bpp;$/;"	m	struct:s_app	typeref:typename:int
 brightness	miniRT.h	/^	float		brightness;$/;"	m	struct:s_light	typeref:typename:float
 c	miniRT.h	/^	float	c;$/;"	m	struct:s_calc	typeref:typename:float
 calcLighting	trace.c	/^t_vec3 calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor) {$/;"	f	typeref:typename:t_vec3
@@ -94,6 +97,9 @@ camDir	miniRT.h	/^	t_vec3		camDir;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camDir	raytracer_formatted.c	/^t_vec3					camDir = {0.0f, 0.0f, -1.0f};$/;"	v	typeref:typename:t_vec3
 camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	raytracer_formatted.c	/^t_vec3					camPos = {0.0f, 0.0f, 0.0f};$/;"	v	typeref:typename:t_vec3
+cam_dir	miniRT.h	/^	t_vec3	cam_dir;$/;"	m	struct:s_app	typeref:typename:t_vec3
+cam_pos	miniRT.h	/^	t_vec3	cam_pos;$/;"	m	struct:s_app	typeref:typename:t_vec3
+cam_up	miniRT.h	/^	t_vec3	cam_up;$/;"	m	struct:s_app	typeref:typename:t_vec3
 camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
@@ -106,6 +112,7 @@ color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_light	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
+color	miniRT.h	/^	t_vec3	color;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 compute_cap_intersection	parsing_cylinder_utils.c	/^static void compute_cap_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
 compute_hit_normal	parsing_cylinder_utils.c	/^static void compute_hit_normal(Ray ray, Cylinder cy, t_calc *calc, t_vec3 *hitNormal) {$/;"	f	typeref:typename:void	file:
 compute_side_intersection	parsing_cylinder_utils.c	/^static void compute_side_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:void	file:
@@ -118,13 +125,19 @@ d_perp	miniRT.h	/^	t_vec3	d_perp;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 dir	miniRT.h	/^	t_vec3		dir;$/;"	m	struct:s_ray	typeref:typename:t_vec3
 disc	miniRT.h	/^	float	disc;$/;"	m	struct:s_calc	typeref:typename:float
 dist	miniRT.h	/^	float	dist;$/;"	m	struct:s_calc	typeref:typename:float
+endian	miniRT.h	/^	int		endian;$/;"	m	struct:s_app	typeref:typename:int
 fd_if_exit	miniRT.h	/^	const int		fd_if_exit;$/;"	m	struct:s_scene	typeref:typename:const int
 fov	miniRT.h	/^	float		fov;$/;"	m	struct:s_camera	typeref:typename:float
+fov	miniRT.h	/^	float	fov;$/;"	m	struct:s_app	typeref:typename:float
 fov	raytracer_formatted.c	/^float					fov = 90.0f;$/;"	v	typeref:typename:float
+g	miniRT.h	/^	unsigned char	g;$/;"	m	struct:s_calc	typeref:typename:unsigned char
 get_tokens_secure	parsing_utils.c	/^inline	char	**get_tokens_secure(t_scene scene, const int numObject, const int numObjectMax, cons/;"	f	typeref:typename:char **
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 hitPoint	miniRT.h	/^	t_vec3	hitPoint;$/;"	m	struct:s_calc	typeref:typename:t_vec3
+img	miniRT.h	/^	void	*img;$/;"	m	struct:s_app	typeref:typename:void *
+init_app_config	main.c	/^static int	init_app_config(t_app *app, int argc, char **argv)$/;"	f	typeref:typename:int	file:
 init_intersection	parsing_cylinder_utils.c	/^static int init_intersection(Ray ray, Cylinder cy, t_calc *calc) {$/;"	f	typeref:typename:int	file:
+init_mlx_and_image	main.c	/^static int	init_mlx_and_image(t_app *app)$/;"	f	typeref:typename:int	file:
 intersectCylinder	parsing_cylinder_utils.c	/^float intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal) {$/;"	f	typeref:typename:float
 intersectCylinder	raytracer_formatted.c	/^float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectObjects	trace.c	/^bool intersectObjects(Ray ray, float *tMin, t_vec3 *hitNormal, t_vec3 *objColor) {$/;"	f	typeref:typename:bool
@@ -134,12 +147,29 @@ intersectSphere	parsing_sphere.c	/^float	intersectSphere(Ray ray, Sphere s, t_ve
 intersectSphere	raytracer_formatted.c	/^float	intersectSphere(Ray ray, Sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 isInShadow	raytracer_formatted.c	/^bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos)$/;"	f	typeref:typename:bool
 isInShadow	shadows.c	/^bool isInShadow(t_vec3 hitPoint, t_vec3 lightPos) {$/;"	f	typeref:typename:bool
+key_a	miniRT.h	/^	int		key_a;$/;"	m	struct:s_app	typeref:typename:int
+key_d	miniRT.h	/^	int		key_d;$/;"	m	struct:s_app	typeref:typename:int
+key_down	miniRT.h	/^	int		key_down;$/;"	m	struct:s_app	typeref:typename:int
+key_left	miniRT.h	/^	int		key_left;$/;"	m	struct:s_app	typeref:typename:int
+key_press	peripherique.c	/^int	key_press(int keycode, t_app *app)$/;"	f	typeref:typename:int
+key_release	peripherique.c	/^int	key_release(int keycode, t_app *app)$/;"	f	typeref:typename:int
+key_right	miniRT.h	/^	int		key_right;$/;"	m	struct:s_app	typeref:typename:int
+key_s	miniRT.h	/^	int		key_s;$/;"	m	struct:s_app	typeref:typename:int
+key_up	miniRT.h	/^	int		key_up;$/;"	m	struct:s_app	typeref:typename:int
+key_w	miniRT.h	/^	int		key_w;$/;"	m	struct:s_app	typeref:typename:int
 lights	miniRT.h	/^	t_light		lights[MAX_LIGHTS];$/;"	m	struct:s_scene	typeref:typename:t_light[]
 line_if_exit	miniRT.h	/^	const char 		*line_if_exit;$/;"	m	struct:s_scene	typeref:typename:const char *
 load_config	config.c	/^t_scene	load_config(const char *filename)$/;"	f	typeref:typename:t_scene
 load_config	raytracer_formatted.c	/^void	load_config(const char *filename)$/;"	f	typeref:typename:void
+main	main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
 main	raytracer_formatted.c	/^int	main(int argc, char *argv[])$/;"	f	typeref:typename:int
+mlx	miniRT.h	/^	void	*mlx;$/;"	m	struct:s_app	typeref:typename:void *
+mouse_move	peripherique.c	/^int	mouse_move(int x, int y, t_app *app)$/;"	f	typeref:typename:int
+mouse_sens	miniRT.h	/^	float	mouse_sens;$/;"	m	struct:s_app	typeref:typename:float
+move_speed	miniRT.h	/^	float	move_speed;$/;"	m	struct:s_app	typeref:typename:float
 n	miniRT.h	/^	t_vec3	n;$/;"	m	struct:s_calc	typeref:typename:t_vec3
+ndc_x	miniRT.h	/^	float	ndc_x;$/;"	m	struct:s_calc	typeref:typename:float
+ndc_y	miniRT.h	/^	float	ndc_y;$/;"	m	struct:s_calc	typeref:typename:float
 normal	miniRT.h	/^	t_vec3		normal;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 numAmbient	miniRT.h	/^	int			numAmbient;$/;"	m	struct:s_scene	typeref:typename:int
 numCylinders	miniRT.h	/^	int			numCylinders;$/;"	m	struct:s_scene	typeref:typename:int
@@ -162,17 +192,26 @@ parsing_line	config.c	/^static inline t_scene	parsing_line(const char *line, t_s
 parsing_plane	parsing_plane.c	/^t_scene	parsing_plane(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 parsing_sphere	parsing_sphere.c	/^t_scene	parsing_sphere(const char *line, t_scene scene)$/;"	f	typeref:typename:t_scene
 pitch	miniRT.h	/^	float		pitch; \/\/ vue de haut en bas en radians$/;"	m	struct:s_camera	typeref:typename:float
+pitch	miniRT.h	/^	float	pitch;$/;"	m	struct:s_app	typeref:typename:float
 pitch	raytracer_formatted.c	/^float					pitch = 0.0f; \/\/ vue de haut en bas en radians$/;"	v	typeref:typename:float
+pixels	miniRT.h	/^	int		*pixels;$/;"	m	struct:s_app	typeref:typename:int *
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
 point	miniRT.h	/^	t_vec3		point;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 pos	miniRT.h	/^	t_vec3		pos;$/;"	m	struct:s_light	typeref:typename:t_vec3
 proj	miniRT.h	/^	float	proj;$/;"	m	struct:s_calc	typeref:typename:float
+r	miniRT.h	/^	unsigned char	r;$/;"	m	struct:s_calc	typeref:typename:unsigned char
 radius	miniRT.h	/^	float		radius;$/;"	m	struct:s_sphere	typeref:typename:float
 radius	miniRT.h	/^	float radius; \/\/ Demi-diamètre$/;"	m	struct:s_cylinder	typeref:typename:float
 range_is_ok	parsing_color.c	/^static inline int	range_is_ok(char **token_color)$/;"	f	typeref:typename:int	file:
 range_is_ok	parsing_vector.c	/^static inline int	range_is_ok(char **token_vector)$/;"	f	typeref:typename:int	file:
+ray_dir	miniRT.h	/^	t_vec3	ray_dir;$/;"	m	struct:s_calc	typeref:typename:t_vec3
+render_pixel	render.c	/^static void	render_pixel(t_app *app, int x, int y)$/;"	f	typeref:typename:void	file:
+render_scene	render.c	/^void	render_scene(t_app *app)$/;"	f	typeref:typename:void
+right	miniRT.h	/^	t_vec3	right;$/;"	m	struct:s_app	typeref:typename:t_vec3
+rot_speed	miniRT.h	/^	float	rot_speed;$/;"	m	struct:s_app	typeref:typename:float
 s_ambient	miniRT.h	/^typedef struct s_ambient$/;"	s
-s_calc	miniRT.h	/^typdef struct s_calc$/;"	s
+s_app	miniRT.h	/^typedef struct s_app$/;"	s
+s_calc	miniRT.h	/^typedef struct s_calc$/;"	s
 s_camera	miniRT.h	/^typedef struct s_camera$/;"	s
 s_cylinder	miniRT.h	/^typedef struct s_cylinder$/;"	s
 s_light	miniRT.h	/^typedef struct s_light$/;"	s
@@ -181,15 +220,21 @@ s_ray	miniRT.h	/^typedef struct s_ray$/;"	s
 s_scene	miniRT.h	/^typedef struct s_scene$/;"	s
 s_sphere	miniRT.h	/^typedef struct s_sphere$/;"	s
 s_vec3	miniRT.h	/^typedef struct s_vec3$/;"	s
+scale	miniRT.h	/^	float	scale;$/;"	m	struct:s_calc	typeref:typename:float
+screen_x	miniRT.h	/^	float	screen_x;$/;"	m	struct:s_calc	typeref:typename:float
+screen_y	miniRT.h	/^	float	screen_y;$/;"	m	struct:s_calc	typeref:typename:float
 select_final_intersection	parsing_cylinder_utils.c	/^static float select_final_intersection(t_calc *calc) {$/;"	f	typeref:typename:float	file:
+setup_hooks	main.c	/^static void	setup_hooks(t_app *app)$/;"	f	typeref:typename:void	file:
+size_line	miniRT.h	/^	int		size_line;$/;"	m	struct:s_app	typeref:typename:int
 spheres	miniRT.h	/^	t_sphere	spheres[MAX_SPHERES];$/;"	m	struct:s_scene	typeref:typename:t_sphere[]
 sqrtDisc	miniRT.h	/^	float	sqrtDisc;$/;"	m	struct:s_calc	typeref:typename:float
 t	miniRT.h	/^	float	t;$/;"	m	struct:s_calc	typeref:typename:float
 t0	miniRT.h	/^	float	t0;$/;"	m	struct:s_calc	typeref:typename:float
 t1	miniRT.h	/^	float	t1;$/;"	m	struct:s_calc	typeref:typename:float
 t_ambient	miniRT.h	/^}				t_ambient;$/;"	t	typeref:struct:s_ambient
+t_app	miniRT.h	/^}				t_app;$/;"	t	typeref:struct:s_app
 t_bot	miniRT.h	/^	float	t_bot;$/;"	m	struct:s_calc	typeref:typename:float
-t_calc	miniRT.h	/^}				t_calc;$/;"	v	typeref:struct:s_calc
+t_calc	miniRT.h	/^}				t_calc;$/;"	t	typeref:struct:s_calc
 t_camera	miniRT.h	/^}				t_camera;$/;"	t	typeref:struct:s_camera
 t_cap	miniRT.h	/^	float	t_cap;$/;"	m	struct:s_calc	typeref:typename:float
 t_cylinder	miniRT.h	/^}				t_cylinder;$/;"	t	typeref:struct:s_cylinder
@@ -205,6 +250,10 @@ t_vec3	miniRT.h	/^}				t_vec3;$/;"	t	typeref:struct:s_vec3
 token_if_exit	miniRT.h	/^	const char		**token_if_exit;$/;"	m	struct:s_scene	typeref:typename:const char **
 trace	raytracer_formatted.c	/^t_vec3	trace(Ray ray)$/;"	f	typeref:typename:t_vec3
 trace	trace.c	/^t_vec3 trace(Ray ray) {$/;"	f	typeref:typename:t_vec3
+update_camera	update_camera.c	/^void	update_camera(t_app *app)$/;"	f	typeref:typename:void
+update_camera_movement	update_camera.c	/^static void	update_camera_movement(t_app *app)$/;"	f	typeref:typename:void	file:
+update_camera_rotation	update_camera.c	/^static void	update_camera_rotation(t_app *app)$/;"	f	typeref:typename:void	file:
+update_frame	frame.c	/^int	update_frame(t_app *app)$/;"	f	typeref:typename:int
 v	miniRT.h	/^	t_vec3	v;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 vec3_add	calcul_de_vecteur.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 vec3_cross	calcul_de_vecteur.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
@@ -214,9 +263,13 @@ vec3_mul	calcul_de_vecteur2.c	/^t_vec3	vec3_mul(t_vec3 a, t_vec3 b)$/;"	f	typere
 vec3_normalize	calcul_de_vecteur2.c	/^t_vec3	vec3_normalize(t_vec3 a)$/;"	f	typeref:typename:t_vec3
 vec3_scale	calcul_de_vecteur.c	/^t_vec3	vec3_scale(t_vec3 a, float s)$/;"	f	typeref:typename:t_vec3
 vec3_sub	calcul_de_vecteur.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+win	miniRT.h	/^	void	*win;$/;"	m	struct:s_app	typeref:typename:void *
+win_height	miniRT.h	/^	int		win_height;$/;"	m	struct:s_app	typeref:typename:int
+win_width	miniRT.h	/^	int		win_width;$/;"	m	struct:s_app	typeref:typename:int
 x	miniRT.h	/^	float		x;$/;"	m	struct:s_vec3	typeref:typename:float
 y	miniRT.h	/^	float		y;$/;"	m	struct:s_vec3	typeref:typename:float
 y	miniRT.h	/^	float	y;$/;"	m	struct:s_calc	typeref:typename:float
 yaw	miniRT.h	/^	float		yaw;\/\/ vue de gauche a droite$/;"	m	struct:s_camera	typeref:typename:float
+yaw	miniRT.h	/^	float	yaw;$/;"	m	struct:s_app	typeref:typename:float
 yaw	raytracer_formatted.c	/^float					yaw = 0.0f;\/\/ vue de gauche a droite$/;"	v	typeref:typename:float
 z	miniRT.h	/^	float		z;$/;"	m	struct:s_vec3	typeref:typename:float
