@@ -6,14 +6,14 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:07:07 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:51:30 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:15:32 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
 // Renvoie true si le rayon intersecte un objet, et met à jour tMin,
-	hitNormal et objColor
+//hitNormal et objColor
 bool	intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal,
 		t_vec3 *objColor, t_scene scene)
 {
@@ -115,8 +115,8 @@ t_vec3	trace(t_ray ray, t_scene scene)
 	t_vec3	hitPoint;
 
 	tMin = 1e9;
-	hitNormal = {0, 0, 0};
-	objColor = {0, 0, 0};
+	hitNormal = (t_vec3){0, 0, 0};
+	objColor = (t_vec3){0, 0, 0};
 	if (intersectObjects(ray, &tMin, &hitNormal, &objColor, scene))
 	{
 		hitPoint = vec3_add(ray.origin, vec3_scale(ray.dir, tMin));

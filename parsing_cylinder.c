@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:54:13 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 22:02:43 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:14:45 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ float	intersectCylinder(Ray ray, Cylinder cy, t_vec3 *hitNormal)
 }*/
 t_scene	parsing_cylindre(t_scene scene)
 {
+	char	**tokens;
+
 	tokens = get_tokens_secure(scene, scene.numCylinders, MAX_CYLINDERS, 6);
 	scene.token_if_exit = tokens;
 	scene.cylinders[scene.numCylinders].center = parse_vector(tokens[1], scene);
