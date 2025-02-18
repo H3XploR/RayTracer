@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:07:07 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:15:32 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:40:17 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_vec3	calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
 	{
 		light = scene.lights[i];
 		L = vec3_normalize(vec3_sub(light.pos, hitPoint));
-		if (!isInShadow(hitPoint, light.pos, scene))
+		if (!is_in_shadow(hitPoint, light.pos, scene))
 		{
 			diff = fmaxf(0.0f, vec3_dot(hitNormal, L));
 			viewDir = vec3_normalize(vec3_sub(scene.camera.camPos, hitPoint));

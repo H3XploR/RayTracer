@@ -291,11 +291,11 @@ camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_came
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
-checkShadowCylinder	shadows.c	/^static bool	checkShadowCylinder(const t_ray shadowRay, float maxT,$/;"	f	typeref:typename:bool	file:
-checkShadowPlane	shadows.c	/^static bool	checkShadowPlane(const t_ray shadowRay, float maxT, float epsilon,$/;"	f	typeref:typename:bool	file:
-checkShadowSphere	shadows.c	/^static bool	checkShadowSphere(const t_ray shadowRay, float maxT, float epsilon,$/;"	f	typeref:typename:bool	file:
 check_if_max	check.c	/^void	check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
-check_sign	ft_atof.c	/^inline static char *check_sign(char *str, int *sign)$/;"	f	typeref:typename:char *	file:
+check_shadow_cylinder	shadows.c	/^static bool	check_shadow_cylinder(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
+check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
+check_shadow_sphere	shadows.c	/^static bool	check_shadow_sphere(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
+check_sign	ft_atof.c	/^inline static char	*check_sign(char *str, int *sign)$/;"	f	typeref:typename:char *	file:
 check_tokens	check.c	/^int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
 clean	libft/Makefile	/^clean:$/;"	t
 clean	makefile	/^clean:$/;"	t
@@ -438,7 +438,7 @@ intersectCylinder	parsing_cylinder_utils.c	/^float	intersectCylinder(t_ray ray, 
 intersectObjects	trace.c	/^bool	intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal,$/;"	f	typeref:typename:bool
 intersectPlane	parsing_plane.c	/^float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectSphere	parsing_sphere.c	/^float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
-isInShadow	shadows.c	/^bool	isInShadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)$/;"	f	typeref:typename:bool
+is_in_shadow	shadows.c	/^bool	is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)$/;"	f	typeref:typename:bool
 key_a	miniRT.h	/^	int			key_a;$/;"	m	struct:s_app	typeref:typename:int
 key_d	miniRT.h	/^	int			key_d;$/;"	m	struct:s_app	typeref:typename:int
 key_down	miniRT.h	/^	int			key_down;$/;"	m	struct:s_app	typeref:typename:int

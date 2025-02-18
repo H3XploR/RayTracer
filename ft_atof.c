@@ -6,13 +6,13 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 21:19:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:14:00 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:22:12 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-inline static char *check_sign(char *str, int *sign)
+inline static char	*check_sign(char *str, int *sign)
 {
 	if (*str == '-')
 	{

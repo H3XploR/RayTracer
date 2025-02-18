@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:35:02 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:23:15 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,18 @@ static int	init_mlx_and_image(t_app *app)
 {
 	app->mlx = mlx_init();
 	if (!app->mlx)
-	{
-		ft_putstr_fd("Erreur mlx_init\n", 2);
 		return (1);
-	}
 	app->win = mlx_new_window(app->mlx, app->win_width, app->win_height,
 			"Raytracer interactif");
 	if (!app->win)
-	{
-		ft_putstr_fd("Erreur mlx_new_window\n", 2);
 		return (1);
-	}
 	app->img = mlx_new_image(app->mlx, app->win_width, app->win_height);
 	if (!app->img)
-	{
-		ft_putstr_fd("Erreur mlx_new_image\n", 2);
 		return (1);
-	}
 	app->pixels = (int *)mlx_get_data_addr(app->img, &app->bpp, &app->size_line,
 			&app->endian);
 	if (!app->pixels)
-	{
-		ft_putstr_fd("Erreur mlx_get_data_addr\n", 2);
 		return (1);
-	}
 	return (0);
 }
 

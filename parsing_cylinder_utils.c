@@ -6,13 +6,14 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:54:45 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:28:56 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:38:56 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-// Initialise les variables de calcul et les coefficients du polynôme d'intersection
+// Initialise les variables de calcul et les 
+// coefficients du polynôme d'intersection
 static int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)
 {
 	calc->d = ray.dir;
@@ -34,7 +35,8 @@ static int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)
 	return (0);
 }
 
-// Calcule l'intersection sur la surface latérale du cylindre
+// Calcule l'intersection sur la surface 
+//latérale du cylindre
 static void	compute_side_intersection(t_cylinder cy, t_calc *calc)
 {
 	calc->t_side = -1;
@@ -52,7 +54,8 @@ static void	compute_side_intersection(t_cylinder cy, t_calc *calc)
 	}
 }
 
-// Calcule l'intersection sur les capuchons supérieur et inférieur
+// Calcule l'intersection sur les 
+// capuchons supérieur et inférieur
 static void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc)
 {
 	calc->t_cap = -1;
@@ -82,16 +85,24 @@ static void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc)
 	}
 }
 
-// Sélectionne l'intersection la plus proche entre la surface latérale et les capuchons
+// Sélectionne l'intersection la plus 
+//proche entre la surface latérale et les capuchons
 static float	select_final_intersection(t_calc *calc)
 {
 	if (calc->t_side > 1e-3f && calc->t_cap > 1e-3f)
-		calc->t_final = (calc->t_side < calc->t_cap) ? calc->t_side : calc->t_cap;
+	{
+		if (calc->t_side < calc->t_cap)
+			calc->t_final = calc->t_side;
+		else
+			calc->t_final = calc->t_cap;
+	}
 	else if (calc->t_side > 1e-3f)
 		calc->t_final = calc->t_side;
 	else
 		calc->t_final = calc->t_cap;
-	return ((calc->t_final > 1e-3f) ? calc->t_final : -1);
+	if (calc->t_final > 1e-3f)
+		return (calc->t_final);
+	return (-1);
 }
 
 // Calcule la normale au point d'intersection
@@ -108,7 +119,10 @@ static void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
 	}
 	else
 	{
-		*hitNormal = (calc->proj > 0) ? calc->v : vec3_scale(calc->v, -1);
+		if (calc->proj > 0)
+			*hitNormal = calc->v;
+		else
+			*hitNormal = vec3_scale(calc->v, -1);
 	}
 }
 
