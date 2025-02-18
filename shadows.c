@@ -13,13 +13,13 @@
 #include "miniRT.h"
 
 // Vérifie les intersections avec les sphères
-static bool	check_shadow_sphere(const t_ray shadow_ray, \
-		float max_t, t_scene scene)
+static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,
+		t_scene scene)
 {
 	const float	epsilon = 1e-3f;
-	int		i;
-	t_vec3	dummy;
-	float	t;
+	int			i;
+	t_vec3		dummy;
+	float		t;
 
 	i = 0;
 	while (i < scene.numSpheres)
@@ -33,13 +33,13 @@ static bool	check_shadow_sphere(const t_ray shadow_ray, \
 }
 
 // Vérifie les intersections avec les plans
-static bool	check_shadow_plane(const t_ray shadow_ray, \
-		float max_t, t_scene scene)
+static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,
+		t_scene scene)
 {
 	const float	epsilon = 1e-3f;
-	int		i;
-	t_vec3	dummy;
-	float	t;
+	int			i;
+	t_vec3		dummy;
+	float		t;
 
 	i = 0;
 	while (i < scene.numPlanes)
@@ -53,13 +53,13 @@ static bool	check_shadow_plane(const t_ray shadow_ray, \
 }
 
 // Vérifie les intersections avec les cylindres
-static bool	check_shadow_cylinder(const t_ray shadow_ray, \
-		float max_t, t_scene scene)
+static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,
+		t_scene scene)
 {
 	const float	epsilon = 1e-3f;
-	int		i;
-	t_vec3	dummy;
-	float	t;
+	int			i;
+	t_vec3		dummy;
+	float		t;
 
 	i = 0;
 	while (i < scene.numCylinders)

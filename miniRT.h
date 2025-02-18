@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:39:45 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:50:11 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ float			intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
 float			intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal);
 float			intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
 bool			is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
-bool			intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal,
+bool			intersect_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
 					t_vec3 *objColor, t_scene scene);
 t_vec3			calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
 					t_scene scene);

@@ -292,9 +292,9 @@ center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_ve
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check_if_max	check.c	/^void	check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
-check_shadow_cylinder	shadows.c	/^static bool	check_shadow_cylinder(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
-check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
-check_shadow_sphere	shadows.c	/^static bool	check_shadow_sphere(const t_ray shadow_ray, \\$/;"	f	typeref:typename:bool	file:
+check_shadow_cylinder	shadows.c	/^static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
+check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
+check_shadow_sphere	shadows.c	/^static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
 check_sign	ft_atof.c	/^inline static char	*check_sign(char *str, int *sign)$/;"	f	typeref:typename:char *	file:
 check_tokens	check.c	/^int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
 clean	libft/Makefile	/^clean:$/;"	t
@@ -434,8 +434,8 @@ img	miniRT.h	/^	void		*img;$/;"	m	struct:s_app	typeref:typename:void *
 init_app_config	main.c	/^static int	init_app_config(t_app *app, int argc, char **argv)$/;"	f	typeref:typename:int	file:
 init_intersection	parsing_cylinder_utils.c	/^static int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:int	file:
 init_mlx_and_image	main.c	/^static int	init_mlx_and_image(t_app *app)$/;"	f	typeref:typename:int	file:
+interesct_objects	trace.c	/^bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,$/;"	f	typeref:typename:bool
 intersectCylinder	parsing_cylinder_utils.c	/^float	intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
-intersectObjects	trace.c	/^bool	intersectObjects(t_ray ray, float *tMin, t_vec3 *hitNormal,$/;"	f	typeref:typename:bool
 intersectPlane	parsing_plane.c	/^float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersectSphere	parsing_sphere.c	/^float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 is_in_shadow	shadows.c	/^bool	is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)$/;"	f	typeref:typename:bool
