@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:02:32 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:02:42 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:31:27 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ void	print_cylinder(t_cylinder cyl)
 	print_vec3(cyl.color);
 	printf("\n");
 }
-

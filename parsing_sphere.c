@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:46:16 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:31:36 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:39:35 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_scene	parsing_sphere(t_scene scene)
 	return (scene);
 }
 
-float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
+float	intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 {
 	t_calc	calc;
 
@@ -40,7 +40,10 @@ float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 	calc.sqrtDisc = sqrtf(calc.disc);
 	calc.t0 = (-calc.b - calc.sqrtDisc) / (2 * calc.a);
 	calc.t1 = (-calc.b + calc.sqrtDisc) / (2 * calc.a);
-	calc.t = (calc.t0 > 1e-3f) ? calc.t0 : calc.t1;
+	if (calc.t0 > 1e-3f)
+		calc.t = calc.t0;
+	else
+		calc.t = calc.t1;
 	if (calc.t < 1e-3f)
 		return (-1);
 	calc.hitPoint = vec3_add(ray.origin, vec3_scale(ray.dir, calc.t));

@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:50:11 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:43:16 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct s_scene
 	t_light		lights[MAX_LIGHTS];
 	t_ambient	ambient;
 	t_camera	camera;
+	t_ray		ray;
 	int			numSpheres;
 	int			numPlanes;
 	int			numCylinders;
@@ -217,15 +218,23 @@ int				check_tokens(char **tokens, int expected);
 void			check_if_max(t_scene scene, const int to_test, const int max);
 
 //	Intersection
-float			intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
-float			intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal);
-float			intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
+float			intersect_cylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
+float			intersect_plane(t_ray ray, t_plane p, t_vec3 *hitNormal);
+float			intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
 bool			is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
-bool			intersect_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
+bool			intersect_objects(float *tMin, t_vec3 *hitNormal,
 					t_vec3 *objColor, t_scene scene);
 t_vec3			calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
 					t_scene scene);
 t_vec3			trace(t_ray ray, t_scene scene);
+
+//	Interesction utils cylindre
+int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc);
+void	compute_side_intersection(t_cylinder cy, t_calc *calc);
+void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc);
+float	select_final_intersection(t_calc *calc);
+void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
+		t_vec3 *hitNormal);
 
 //	Peripherique
 int				key_press(int keycode, t_app *app);

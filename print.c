@@ -6,12 +6,12 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:16:21 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:03:05 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:44:33 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-
+/*
 void	print_light(t_light light)
 {
 	printf("Position : ");
@@ -92,3 +92,4 @@ void	print_scene(t_scene scene)
 		i++;
 	}
 }
+*/

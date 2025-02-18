@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:58:42 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:48:22 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:32:30 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,
 	i = 0;
 	while (i < scene.numSpheres)
 	{
-		t = intersectSphere(shadow_ray, scene.spheres[i], &dummy);
+		t = intersect_sphere(shadow_ray, scene.spheres[i], &dummy);
 		if (t > epsilon && t < max_t)
 			return (true);
 		i++;
@@ -44,7 +44,7 @@ static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,
 	i = 0;
 	while (i < scene.numPlanes)
 	{
-		t = intersectPlane(shadow_ray, scene.planes[i], &dummy);
+		t = intersect_plane(shadow_ray, scene.planes[i], &dummy);
 		if (t > epsilon && t < max_t)
 			return (true);
 		i++;
@@ -64,7 +64,7 @@ static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,
 	i = 0;
 	while (i < scene.numCylinders)
 	{
-		t = intersectCylinder(shadow_ray, scene.cylinders[i], &dummy);
+		t = intersect_cylinder(shadow_ray, scene.cylinders[i], &dummy);
 		if (t > epsilon && t < max_t)
 			return (true);
 		i++;

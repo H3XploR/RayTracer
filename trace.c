@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:07:07 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 18:04:11 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:34:28 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Renvoie true si le rayon intersecte un objet, et met à jour tMin,
 //hitNormal et objColor
-bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
+bool	interesct_objects(float *tMin, t_vec3 *hitNormal,
 		t_vec3 *objColor, t_scene scene)
 {
 	bool	hit;
@@ -26,7 +26,7 @@ bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
 	i = 0;
 	while (i < scene.numSpheres)
 	{
-		t = intersectSphere(ray, scene.spheres[i], &n);
+		t = intersect_sphere(scene.ray, scene.spheres[i], &n);
 		if (t > 1e-3f && t < *tMin)
 		{
 			*tMin = t;
@@ -39,7 +39,7 @@ bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
 	i = 0;
 	while (i < scene.numPlanes)
 	{
-		t = intersectPlane(ray, scene.planes[i], &n);
+		t = intersect_plane(scene.ray, scene.planes[i], &n);
 		if (t > 1e-3f && t < *tMin)
 		{
 			*tMin = t;
@@ -52,7 +52,7 @@ bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,
 	i = 0;
 	while (i < scene.numCylinders)
 	{
-		t = intersectCylinder(ray, scene.cylinders[i], &n);
+		t = intersect_cylinder(scene.ray, scene.cylinders[i], &n);
 		if (t > 1e-3f && t < *tMin)
 		{
 			*tMin = t;
@@ -117,9 +117,10 @@ t_vec3	trace(t_ray ray, t_scene scene)
 	tMin = 1e9;
 	hitNormal = (t_vec3){0, 0, 0};
 	objColor = (t_vec3){0, 0, 0};
-	if (interesct_objects(ray, &tMin, &hitNormal, &objColor, scene))
+	scene.ray = ray;
+	if (interesct_objects(&tMin, &hitNormal, &objColor, scene))
 	{
-		hitPoint = vec3_add(ray.origin, vec3_scale(ray.dir, tMin));
+		hitPoint = vec3_add(scene.ray.origin, vec3_scale(scene.ray.dir, tMin));
 		return (calcLighting(hitPoint, hitNormal, objColor, scene));
 	}
 	return ((t_vec3){0.2f, 0.7f, 1.0f}); // Couleur de fond (ciel)

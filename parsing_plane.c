@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:49:41 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:30:47 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:34:02 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_scene	parsing_plane(t_scene scene)
 	return (scene);
 }
 
-float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal)
+float	intersect_plane(t_ray ray, t_plane p, t_vec3 *hitNormal)
 {
 	float	denom;
 	float	t;

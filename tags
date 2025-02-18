@@ -314,9 +314,9 @@ color	miniRT.h	/^	t_vec3		color;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 color	minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
 color_map_1	minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
 color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
-compute_cap_intersection	parsing_cylinder_utils.c	/^static void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void	file:
-compute_hit_normal	parsing_cylinder_utils.c	/^static void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,$/;"	f	typeref:typename:void	file:
-compute_side_intersection	parsing_cylinder_utils.c	/^static void	compute_side_intersection(t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void	file:
+compute_cap_intersection	parsing_cylinder_utils.c	/^void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void
+compute_hit_normal	parsing_cylinder_utils.c	/^void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,$/;"	f	typeref:typename:void
+compute_side_intersection	parsing_cylinder_utils.c	/^void	compute_side_intersection(t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void
 count_word	libft/ft_split.c	/^static size_t	count_word(char	*str, char c)$/;"	f	typeref:typename:size_t	file:
 counter	libft/libft.h	/^	size_t		counter;$/;"	m	struct:s_info	typeref:typename:size_t
 cp	miniRT.h	/^	t_vec3		cp;$/;"	m	struct:s_calc	typeref:typename:t_vec3
@@ -432,12 +432,12 @@ im4	minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
 image	minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
 img	miniRT.h	/^	void		*img;$/;"	m	struct:s_app	typeref:typename:void *
 init_app_config	main.c	/^static int	init_app_config(t_app *app, int argc, char **argv)$/;"	f	typeref:typename:int	file:
-init_intersection	parsing_cylinder_utils.c	/^static int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:int	file:
+init_intersection	parsing_cylinder_utils.c	/^int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:int
 init_mlx_and_image	main.c	/^static int	init_mlx_and_image(t_app *app)$/;"	f	typeref:typename:int	file:
-interesct_objects	trace.c	/^bool	interesct_objects(t_ray ray, float *tMin, t_vec3 *hitNormal,$/;"	f	typeref:typename:bool
-intersectCylinder	parsing_cylinder_utils.c	/^float	intersectCylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
-intersectPlane	parsing_plane.c	/^float	intersectPlane(t_ray ray, t_plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
-intersectSphere	parsing_sphere.c	/^float	intersectSphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
+interesct_objects	trace.c	/^bool	interesct_objects(float *tMin, t_vec3 *hitNormal,$/;"	f	typeref:typename:bool
+intersect_cylinder	parsing_cylinder_utils2.c	/^float	intersect_cylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
+intersect_plane	parsing_plane.c	/^float	intersect_plane(t_ray ray, t_plane p, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
+intersect_sphere	parsing_sphere.c	/^float	intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 is_in_shadow	shadows.c	/^bool	is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)$/;"	f	typeref:typename:bool
 key_a	miniRT.h	/^	int			key_a;$/;"	m	struct:s_app	typeref:typename:int
 key_d	miniRT.h	/^	int			key_d;$/;"	m	struct:s_app	typeref:typename:int
@@ -589,13 +589,9 @@ pixels	miniRT.h	/^	int			*pixels;$/;"	m	struct:s_app	typeref:typename:int *
 planes	miniRT.h	/^	t_plane		planes[MAX_PLANES];$/;"	m	struct:s_scene	typeref:typename:t_plane[]
 point	miniRT.h	/^	t_vec3		point;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 pos	miniRT.h	/^	t_vec3		pos;$/;"	m	struct:s_light	typeref:typename:t_vec3
-print_ambient	print.c	/^void	print_ambient(t_ambient amb)$/;"	f	typeref:typename:void
-print_camera	print.c	/^void	print_camera(t_camera cam)$/;"	f	typeref:typename:void
 print_cylinder	print_next.c	/^void	print_cylinder(t_cylinder cyl)$/;"	f	typeref:typename:void
-print_light	print.c	/^void	print_light(t_light light)$/;"	f	typeref:typename:void
 print_plane	print_next.c	/^void	print_plane(t_plane plane)$/;"	f	typeref:typename:void
 print_ray	print_next.c	/^void	print_ray(t_ray ray)$/;"	f	typeref:typename:void
-print_scene	print.c	/^void	print_scene(t_scene scene)$/;"	f	typeref:typename:void
 print_sphere	print_next.c	/^void	print_sphere(t_sphere sphere)$/;"	f	typeref:typename:void
 print_vec3	print_next.c	/^void	print_vec3(t_vec3 vec)$/;"	f	typeref:typename:void
 printf_fd	libft/printf_fd.c	/^int	printf_fd(int fd, const char *str, ...)$/;"	f	typeref:typename:int
@@ -610,6 +606,7 @@ range_is_ok	parsing_color.c	/^static inline int	range_is_ok(char **token_color)$
 range_is_ok	parsing_vector.c	/^static inline int	range_is_ok(char **token_vector)$/;"	f	typeref:typename:int	file:
 ratio	miniRT.h	/^	float		ratio;$/;"	m	struct:s_ambient	typeref:typename:float
 ray	miniRT.h	/^	t_ray		ray;$/;"	m	struct:s_calc	typeref:typename:t_ray
+ray	miniRT.h	/^	t_ray		ray;$/;"	m	struct:s_scene	typeref:typename:t_ray
 ray_dir	miniRT.h	/^	t_vec3		ray_dir;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 re	libft/Makefile	/^re: fclean all$/;"	t
 re	makefile	/^re: fclean all$/;"	t
@@ -644,7 +641,7 @@ scene	miniRT.h	/^	t_scene		scene;$/;"	m	struct:s_app	typeref:typename:t_scene
 screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
 screen_x	miniRT.h	/^	float		screen_x;$/;"	m	struct:s_calc	typeref:typename:float
 screen_y	miniRT.h	/^	float		screen_y;$/;"	m	struct:s_calc	typeref:typename:float
-select_final_intersection	parsing_cylinder_utils.c	/^static float	select_final_intersection(t_calc *calc)$/;"	f	typeref:typename:float	file:
+select_final_intersection	parsing_cylinder_utils.c	/^float	select_final_intersection(t_calc *calc)$/;"	f	typeref:typename:float
 setup_hooks	main.c	/^static void	setup_hooks(t_app *app)$/;"	f	typeref:typename:void	file:
 shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
