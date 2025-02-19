@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:37:07 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:48:27 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,12 +124,12 @@ typedef struct s_scene
 	t_ambient	ambient;
 	t_camera	camera;
 	t_ray		ray;
-	int			numSpheres;
-	int			numPlanes;
-	int			numCylinders;
-	int			numCamera;
-	int			numLights;
-	int			numAmbient;
+	int			num_spheres;
+	int			num_planes;
+	int			num_cylinders;
+	int			num_camera;
+	int			num_lights;
+	int			num_ambient;
 	char		*line_if_exit;
 	char		**token_if_exit;
 	int			fd_if_exit;

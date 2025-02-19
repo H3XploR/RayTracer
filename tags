@@ -284,8 +284,8 @@ bpp3	minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
 bpp4	minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
 brightness	miniRT.h	/^	float		brightness;$/;"	m	struct:s_light	typeref:typename:float
 c	miniRT.h	/^	float		c;$/;"	m	struct:s_calc	typeref:typename:float
-calc_light_contribution	trace.c	/^static t_vec3 calc_light_contribution(t_hit_info hit, t_light light, t_camera camera, t_scene sc/;"	f	typeref:typename:t_vec3	file:
-calc_lighting	trace.c	/^t_vec3 calc_lighting(t_vec3 hit_point, t_vec3 hit_normal, t_vec3 obj_color, t_scene scene)$/;"	f	typeref:typename:t_vec3
+calc_light_contribution	trace.c	/^static t_vec3	calc_light_contribution(t_hit_info hit, t_light light,$/;"	f	typeref:typename:t_vec3	file:
+calc_lighting	trace.c	/^t_vec3	calc_lighting(t_vec3 hit_point, t_vec3 hit_normal, t_vec3 obj_color,$/;"	f	typeref:typename:t_vec3
 camDir	miniRT.h	/^	t_vec3		camDir;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camPos	miniRT.h	/^	t_vec3		camPos;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
@@ -298,7 +298,7 @@ check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow
 check_shadow_sphere	shadows.c	/^static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
 check_sign	ft_atof.c	/^inline static char	*check_sign(char *str, int *sign)$/;"	f	typeref:typename:char *	file:
 check_tokens	check.c	/^int	check_tokens(char **tokens, int expected)$/;"	f	typeref:typename:int
-clamp_color	trace.c	/^static t_vec3 clamp_color(t_vec3 color)$/;"	f	typeref:typename:t_vec3	file:
+clamp_color	trace.c	/^static t_vec3	clamp_color(t_vec3 color)$/;"	f	typeref:typename:t_vec3	file:
 clean	libft/Makefile	/^clean:$/;"	t
 clean	makefile	/^clean:$/;"	t
 clean	minilibx-linux/Makefile	/^clean	:$/;"	t
@@ -572,12 +572,12 @@ next	minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_lis
 normal	miniRT.h	/^	t_vec3		normal;$/;"	m	struct:s_plane	typeref:typename:t_vec3
 normal	miniRT.h	/^    t_vec3	normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
 normal	miniRT.h	/^    t_vec3 normal;$/;"	m	struct:s_hit_info	typeref:typename:t_vec3
-numAmbient	miniRT.h	/^	int			numAmbient;$/;"	m	struct:s_scene	typeref:typename:int
-numCamera	miniRT.h	/^	int			numCamera;$/;"	m	struct:s_scene	typeref:typename:int
-numCylinders	miniRT.h	/^	int			numCylinders;$/;"	m	struct:s_scene	typeref:typename:int
-numLights	miniRT.h	/^	int			numLights;$/;"	m	struct:s_scene	typeref:typename:int
-numPlanes	miniRT.h	/^	int			numPlanes;$/;"	m	struct:s_scene	typeref:typename:int
-numSpheres	miniRT.h	/^	int			numSpheres;$/;"	m	struct:s_scene	typeref:typename:int
+num_ambient	miniRT.h	/^	int			num_ambient;$/;"	m	struct:s_scene	typeref:typename:int
+num_camera	miniRT.h	/^	int			num_camera;$/;"	m	struct:s_scene	typeref:typename:int
+num_cylinders	miniRT.h	/^	int			num_cylinders;$/;"	m	struct:s_scene	typeref:typename:int
+num_lights	miniRT.h	/^	int			num_lights;$/;"	m	struct:s_scene	typeref:typename:int
+num_planes	miniRT.h	/^	int			num_planes;$/;"	m	struct:s_scene	typeref:typename:int
+num_spheres	miniRT.h	/^	int			num_spheres;$/;"	m	struct:s_scene	typeref:typename:int
 oc	miniRT.h	/^	t_vec3		oc;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 oc_dot_v	miniRT.h	/^	float		oc_dot_v;$/;"	m	struct:s_calc	typeref:typename:float
 oc_perp	miniRT.h	/^	t_vec3		oc_perp;$/;"	m	struct:s_calc	typeref:typename:t_vec3

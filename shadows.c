@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:58:42 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 20:32:30 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:50:54 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,
 	float		t;
 
 	i = 0;
-	while (i < scene.numSpheres)
+	while (i < scene.num_spheres)
 	{
 		t = intersect_sphere(shadow_ray, scene.spheres[i], &dummy);
 		if (t > epsilon && t < max_t)
@@ -42,7 +42,7 @@ static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,
 	float		t;
 
 	i = 0;
-	while (i < scene.numPlanes)
+	while (i < scene.num_planes)
 	{
 		t = intersect_plane(shadow_ray, scene.planes[i], &dummy);
 		if (t > epsilon && t < max_t)
@@ -62,7 +62,7 @@ static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,
 	float		t;
 
 	i = 0;
-	while (i < scene.numCylinders)
+	while (i < scene.num_cylinders)
 	{
 		t = intersect_cylinder(shadow_ray, scene.cylinders[i], &dummy);
 		if (t > epsilon && t < max_t)

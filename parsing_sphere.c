@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:46:16 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 20:39:35 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:50:19 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ t_scene	parsing_sphere(t_scene scene)
 {
 	char	**tokens;
 
-	tokens = get_tokens_secure(scene, scene.numSpheres, MAX_SPHERES, 4);
+	tokens = get_tokens_secure(scene, scene.num_spheres, MAX_SPHERES, 4);
 	scene.token_if_exit = tokens;
-	scene.spheres[scene.numSpheres].center = parse_vector(tokens[1], scene);
-	scene.spheres[scene.numSpheres].radius = ft_atof(tokens[2]) / 2.0f;
-	scene.spheres[scene.numSpheres].color = parse_color(tokens[3], scene);
+	scene.spheres[scene.num_spheres].center = parse_vector(tokens[1], scene);
+	scene.spheres[scene.num_spheres].radius = ft_atof(tokens[2]) / 2.0f;
+	scene.spheres[scene.num_spheres].color = parse_color(tokens[3], scene);
 	ft_free_array(tokens);
-	scene.numSpheres++;
+	scene.num_spheres++;
 	return (scene);
 }
 
