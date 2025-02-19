@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:27:24 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:37:07 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,13 @@ typedef struct s_hit
     t_vec3	normal;
     t_vec3	color;
 }				t_hit;
+
+typedef struct s_hit_info {
+    t_vec3 point;
+    t_vec3 normal;
+    t_vec3 color;
+} t_hit_info;
+
 
 typedef struct s_camera
 {
