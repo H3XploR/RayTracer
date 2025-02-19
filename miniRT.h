@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 20:43:16 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:27:24 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,13 @@ typedef struct s_ambient
 	float		ratio;
 	t_vec3		color;
 }				t_ambient;
+
+typedef struct s_hit
+{
+    float	t;
+    t_vec3	normal;
+    t_vec3	color;
+}				t_hit;
 
 typedef struct s_camera
 {
@@ -184,6 +191,13 @@ typedef struct s_calc
 	t_ray		ray;
 	t_vec3		ray_dir;
 	t_vec3		color;
+	t_light	light;
+	t_vec3	l;
+	float	diff;
+	t_vec3	view_dir;
+	t_vec3	half_dir;
+	float	spec;
+
 }				t_calc;
 
 //	Calcul de vecteur
@@ -224,7 +238,7 @@ float			intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
 bool			is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
 bool			intersect_objects(float *tMin, t_vec3 *hitNormal,
 					t_vec3 *objColor, t_scene scene);
-t_vec3			calcLighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
+t_vec3			calc_lighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
 					t_scene scene);
 t_vec3			trace(t_ray ray, t_scene scene);
 
