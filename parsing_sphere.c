@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:46:16 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:50:19 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:59:34 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ float	intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 	calc.disc = calc.b * calc.b - 4 * calc.a * calc.c;
 	if (calc.disc < 0)
 		return (-1);
-	calc.sqrtDisc = sqrtf(calc.disc);
-	calc.t0 = (-calc.b - calc.sqrtDisc) / (2 * calc.a);
-	calc.t1 = (-calc.b + calc.sqrtDisc) / (2 * calc.a);
+	calc.sqrt_disc = sqrtf(calc.disc);
+	calc.t0 = (-calc.b - calc.sqrt_disc) / (2 * calc.a);
+	calc.t1 = (-calc.b + calc.sqrt_disc) / (2 * calc.a);
 	if (calc.t0 > 1e-3f)
 		calc.t = calc.t0;
 	else
 		calc.t = calc.t1;
 	if (calc.t < 1e-3f)
 		return (-1);
-	calc.hitPoint = vec3_add(ray.origin, vec3_scale(ray.dir, calc.t));
-	*hitNormal = vec3_normalize(vec3_sub(calc.hitPoint, s.center));
+	calc.hit_point = vec3_add(ray.origin, vec3_scale(ray.dir, calc.t));
+	*hitNormal = vec3_normalize(vec3_sub(calc.hit_point, s.center));
 	return (calc.t);
 }

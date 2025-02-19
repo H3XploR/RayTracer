@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:54:45 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 20:43:49 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:59:10 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc)
 	calc->disc = calc->b * calc->b - 4 * calc->a * calc->c;
 	if (calc->disc < 0)
 		return (-1);
-	calc->sqrtDisc = sqrtf(calc->disc);
-	calc->t0 = (-calc->b - calc->sqrtDisc) / (2 * calc->a);
-	calc->t1 = (-calc->b + calc->sqrtDisc) / (2 * calc->a);
+	calc->sqrt_disc = sqrtf(calc->disc);
+	calc->t0 = (-calc->b - calc->sqrt_disc) / (2 * calc->a);
+	calc->t1 = (-calc->b + calc->sqrt_disc) / (2 * calc->a);
 	return (0);
 }
 
@@ -109,8 +109,8 @@ float	select_final_intersection(t_calc *calc)
 void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
 		t_vec3 *hitNormal)
 {
-	calc->hitPoint = vec3_add(ray.origin, vec3_scale(calc->d, calc->t_final));
-	calc->cp = vec3_sub(calc->hitPoint, cy.center);
+	calc->hit_point = vec3_add(ray.origin, vec3_scale(calc->d, calc->t_final));
+	calc->cp = vec3_sub(calc->hit_point, cy.center);
 	calc->proj = vec3_dot(calc->cp, calc->v);
 	if (fabs(calc->proj) < cy.height / 2.0f - 1e-3f)
 	{

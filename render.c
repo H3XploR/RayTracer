@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:24:30 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:08:52 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:59:45 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void	render_pixel(t_app *app, int x, int y)
 	calc.scale = tanf((app->scene.camera.fov * 0.5f) * (M_PI / 180.0f));
 	calc.screen_x = (2 * calc.ndc_x - 1) * calc.aspect * calc.scale;
 	calc.screen_y = (1 - 2 * calc.ndc_y) * calc.scale;
-	calc.ray_dir = vec3_add(app->scene.camera.camDir,
+	calc.ray_dir = vec3_add(app->scene.camera.cam_dir,
 			vec3_add(vec3_scale(app->scene.camera.right, calc.screen_x),
 				vec3_scale(app->scene.camera.up, calc.screen_y)));
 	calc.ray_dir = vec3_normalize(calc.ray_dir);
-	calc.ray.origin = app->scene.camera.camPos;
+	calc.ray.origin = app->scene.camera.cam_pos;
 	calc.ray.dir = calc.ray_dir;
 	calc.color = trace(calc.ray, app->scene);
 	r = (unsigned char)(fminf(calc.color.x, 1.0f) * 255);

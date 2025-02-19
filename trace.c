@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:07:07 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:52:23 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:59:53 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_vec3	calc_light_contribution(t_hit_info hit, t_light light,
 	if (is_in_shadow(hit.point, light.pos, scene))
 		return ((t_vec3){0, 0, 0});
 	diff = fmaxf(0.0f, vec3_dot(hit.normal, l));
-	view_dir = vec3_normalize(vec3_sub(camera.camPos, hit.point));
+	view_dir = vec3_normalize(vec3_sub(camera.cam_pos, hit.point));
 	half_dir = vec3_normalize(vec3_add(l, view_dir));
 	spec = powf(fmaxf(0.0f, vec3_dot(hit.normal, half_dir)), 32.0f);
 	return (vec3_add(vec3_scale(vec3_mul(hit.color, \

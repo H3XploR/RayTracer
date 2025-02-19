@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:48:27 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:57:35 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct s_plane
 typedef struct s_cylinder
 {
 	t_vec3		center;
-	t_vec3 axis;  // Axe normalisé
-	float radius; // Demi-diamètre
+	t_vec3		axis;
+	float		radius;
 	float		height;
 	t_vec3		color;
 }				t_cylinder;
@@ -90,29 +90,29 @@ typedef struct s_ambient
 
 typedef struct s_hit
 {
-    float	t;
-    t_vec3	normal;
-    t_vec3	color;
+	float		t;
+	t_vec3		normal;
+	t_vec3		color;
 }				t_hit;
 
-typedef struct s_hit_info {
-    t_vec3 point;
-    t_vec3 normal;
-    t_vec3 color;
-} t_hit_info;
-
+typedef struct s_hit_info
+{
+	t_vec3		point;
+	t_vec3		normal;
+	t_vec3		color;
+}				t_hit_info;
 
 typedef struct s_camera
 {
-	t_vec3		camPos;
-	t_vec3		camDir;
+	t_vec3		cam_pos;
+	t_vec3		cam_dir;
 	t_vec3		right;
 	t_vec3		up;
 	float		rot_speed;
 	float		move_speed;
 	float		fov;
-	float yaw;   // vue de gauche a droite
-	float pitch; // vue de haut en bas en radians
+	float		yaw;
+	float		pitch;
 }				t_camera;
 
 typedef struct s_scene
@@ -167,11 +167,11 @@ typedef struct s_calc
 	float		b;
 	float		c;
 	float		disc;
-	float		sqrtDisc;
+	float		sqrt_disc;
 	float		t0;
 	float		t1;
 	float		t;
-	t_vec3		hitPoint;
+	t_vec3		hit_point;
 	t_vec3		d;
 	t_vec3		v;
 	float		d_dot_v;
@@ -198,12 +198,12 @@ typedef struct s_calc
 	t_ray		ray;
 	t_vec3		ray_dir;
 	t_vec3		color;
-	t_light	light;
-	t_vec3	l;
-	float	diff;
-	t_vec3	view_dir;
-	t_vec3	half_dir;
-	float	spec;
+	t_light		light;
+	t_vec3		l;
+	float		diff;
+	t_vec3		view_dir;
+	t_vec3		half_dir;
+	float		spec;
 
 }				t_calc;
 
@@ -245,17 +245,18 @@ float			intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal);
 bool			is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene);
 bool			intersect_objects(float *tMin, t_vec3 *hitNormal,
 					t_vec3 *objColor, t_scene scene);
-t_vec3			calc_lighting(t_vec3 hitPoint, t_vec3 hitNormal, t_vec3 objColor,
-					t_scene scene);
+t_vec3			calc_lighting(t_vec3 hitPoint, t_vec3 hitNormal,
+					t_vec3 objColor, t_scene scene);
 t_vec3			trace(t_ray ray, t_scene scene);
 
 //	Interesction utils cylindre
-int	init_intersection(t_ray ray, t_cylinder cy, t_calc *calc);
-void	compute_side_intersection(t_cylinder cy, t_calc *calc);
-void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc);
-float	select_final_intersection(t_calc *calc);
-void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
-		t_vec3 *hitNormal);
+int				init_intersection(t_ray ray, t_cylinder cy, t_calc *calc);
+void			compute_side_intersection(t_cylinder cy, t_calc *calc);
+void			compute_cap_intersection(t_ray ray, t_cylinder cy,
+					t_calc *calc);
+float			select_final_intersection(t_calc *calc);
+void			compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
+					t_vec3 *hitNormal);
 
 //	Peripherique
 int				key_press(int keycode, t_app *app);

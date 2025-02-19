@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:27:23 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 23:36:33 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:02:04 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,35 @@ static void	update_camera_rotation(t_app *app)
 		app->scene.camera.pitch = 1.57f - 0.01f;
 	if (app->scene.camera.pitch < -1.57f + 0.01f)
 		app->scene.camera.pitch = -1.57f + 0.01f;
-	app->scene.camera.camDir.x = cosf(app->scene.camera.pitch)
+	app->scene.camera.cam_dir.x = cosf(app->scene.camera.pitch)
 		* sinf(app->scene.camera.yaw);
-	app->scene.camera.camDir.y = sinf(app->scene.camera.pitch);
-	app->scene.camera.camDir.z = -cosf(app->scene.camera.pitch)
+	app->scene.camera.cam_dir.y = sinf(app->scene.camera.pitch);
+	app->scene.camera.cam_dir.z = -cosf(app->scene.camera.pitch)
 		* cosf(app->scene.camera.yaw);
-	app->scene.camera.camDir = vec3_normalize(app->scene.camera.camDir);
+	app->scene.camera.cam_dir = vec3_normalize(app->scene.camera.cam_dir);
 	app->scene.camera.right = (t_vec3){cosf(app->scene.camera.yaw), 0,
 		sinf(app->scene.camera.yaw)};
 	app->scene.camera.right = vec3_normalize(app->scene.camera.right);
 	app->scene.camera.up = vec3_normalize(vec3_cross(app->scene.camera.right,
-				app->scene.camera.camDir));
+				app->scene.camera.cam_dir));
 }
 
 static void	update_camera_movement(t_app *app)
 {
 	if (app->key_w)
-		app->scene.camera.camPos = vec3_add(app->scene.camera.camPos,
-				vec3_scale(app->scene.camera.camDir,
+		app->scene.camera.cam_pos = vec3_add(app->scene.camera.cam_pos,
+				vec3_scale(app->scene.camera.cam_dir,
 					app->scene.camera.move_speed));
 	if (app->key_s)
-		app->scene.camera.camPos = vec3_sub(app->scene.camera.camPos,
-				vec3_scale(app->scene.camera.camDir,
+		app->scene.camera.cam_pos = vec3_sub(app->scene.camera.cam_pos,
+				vec3_scale(app->scene.camera.cam_dir,
 					app->scene.camera.move_speed));
 	if (app->key_a)
-		app->scene.camera.camPos = vec3_sub(app->scene.camera.camPos,
+		app->scene.camera.cam_pos = vec3_sub(app->scene.camera.cam_pos,
 				vec3_scale(app->scene.camera.right,
 					app->scene.camera.move_speed));
 	if (app->key_d)
-		app->scene.camera.camPos = vec3_add(app->scene.camera.camPos,
+		app->scene.camera.cam_pos = vec3_add(app->scene.camera.cam_pos,
 				vec3_scale(app->scene.camera.right,
 					app->scene.camera.move_speed));
 }
