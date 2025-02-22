@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:24:30 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:59:45 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/22 18:32:17 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ void	render_scene(t_app *app)
 {
 	const int	total_pixels = app->win_height * app->win_width;
 	static int	done;
-	static int		progress;
-	int		y;
-	int		x;
-	
+	static int	progress;
+	int			y;
+	int			x;
 
 	y = 0;
 	while (y < app->win_height)
