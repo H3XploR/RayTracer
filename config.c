@@ -15,7 +15,7 @@
 static inline t_scene	parsing_line(char *line, t_scene scene)
 {
 	scene.line_if_exit = line;
-	if (line[0] == '#')
+	if (line[0] == '#' || line[0] == '\n')
 		return (scene);
 	else if (line[0] == 'A')
 		scene = parsing_ambiant(scene);

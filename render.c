@@ -42,13 +42,13 @@ static void	render_pixel(t_app *app, int x, int y)
 void	render_scene(t_app *app)
 {
 	const int	total_pixels = app->win_height * app->win_width;
+	static int	done;
+	static int		progress;
 	int		y;
 	int		x;
-	int		progress;
 	
 
 	y = 0;
-	progress = 0;
 	while (y < app->win_height)
 	{
 		x = 0;
@@ -57,7 +57,12 @@ void	render_scene(t_app *app)
 			progress = ((y * app->win_width + x + 1) * 100) / total_pixels;
 			render_pixel(app, x, y);
 			x++;
-			printf("\rChargement de l'écran : %d%%", progress);
+			if (!done)
+				printf("\rChargement de l'écran : %d%%  ", progress);
+			else
+				printf("\rTERMINE 				");
+			if (progress >= 100)
+				done = 1;
 		}
 		y++;
 	}
