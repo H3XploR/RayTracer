@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/22 18:29:15 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:21:03 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define MAX_SPHERES 128
 # define MAX_PLANES 128
 # define MAX_CYLINDERS 128
-# define MAX_LIGHTS 16
+# define MAX_LIGHTS 1
 # define MAX_AMBIENT 1
 # define MAX_CAMERA 1
 
@@ -237,6 +237,7 @@ char			**get_tokens_secure(t_scene scene, const int numObject,
 //	Check
 int				check_tokens(char **tokens, int expected);
 int				isdigit_token(char **tokens);
+int				have_extension(const char *line);
 void			check_if_max(t_scene scene, const int to_test, const int max);
 
 //	Intersection

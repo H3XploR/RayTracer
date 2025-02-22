@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/18 17:23:15 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:32:40 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,31 @@ static void	setup_hooks(t_app *app)
 	mlx_loop_hook(app->mlx, update_frame, app);
 }
 
+static int	check_number(t_scene scene)
+{
+	if (scene.num_camera > MAX_CAMERA)
+		return (0);
+	if (scene.num_planes > MAX_PLANES)
+		return (0);
+	if (scene.num_spheres > MAX_SPHERES)
+		return (0);
+	if (scene.num_cylinders > MAX_CYLINDERS)
+		return (0);
+	if (scene.num_lights > MAX_LIGHTS)
+		return (0);
+	if (scene.num_ambient > MAX_AMBIENT)
+		return (0);
+	return (1);
+}
+
+
 int	main(int argc, char **argv)
 {
 	t_app	app;
 
 	ft_bzero(&app, sizeof(t_app));
 	init_app_config(&app, argc, argv);
-	if (app.scene.num_camera == 0 || init_mlx_and_image(&app))
+	if (!check_number(app.scene) || app.scene.num_camera == 0 || init_mlx_and_image(&app))
 		return (1);
 	setup_hooks(&app);
 	mlx_loop(app.mlx);
