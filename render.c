@@ -41,17 +41,23 @@ static void	render_pixel(t_app *app, int x, int y)
 
 void	render_scene(t_app *app)
 {
-	int	y;
-	int	x;
+	const int	total_pixels = app->win_height * app->win_width;
+	int		y;
+	int		x;
+	int		progress;
+	
 
 	y = 0;
+	progress = 0;
 	while (y < app->win_height)
 	{
 		x = 0;
 		while (x < app->win_width)
 		{
+			progress = ((y * app->win_width + x + 1) * 100) / total_pixels;
 			render_pixel(app, x, y);
 			x++;
+			printf("\rChargement de l'écran : %d%%", progress);
 		}
 		y++;
 	}
