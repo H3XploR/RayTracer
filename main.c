@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 
 	ft_bzero(&app, sizeof(t_app));
 	init_app_config(&app, argc, argv);
-	if (init_mlx_and_image(&app))
+	if (app.scene.num_camera == 0 || init_mlx_and_image(&app))
 		return (1);
 	setup_hooks(&app);
 	mlx_loop(app.mlx);

@@ -19,7 +19,7 @@ char	**get_tokens_secure(t_scene scene, const int numObject,
 
 	check_if_max(scene, numObject, numObjectMax);
 	tokens = ft_split(scene.line_if_exit, ' ');
-	if (!check_tokens(tokens, supposed_nb_token))
+	if (!check_tokens(tokens, supposed_nb_token) || !isdigit_token(tokens + 1))
 	{
 		ft_free_array(tokens);
 		ft_putendl_fd("error", 2);

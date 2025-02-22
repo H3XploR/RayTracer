@@ -237,6 +237,7 @@ char			**get_tokens_secure(t_scene scene, const int numObject,
 //	Check
 int				check_tokens(char **tokens, int expected);
 void			check_if_max(t_scene scene, const int to_test, const int max);
+int	isdigit_token(char **tokens);
 
 //	Intersection
 float			intersect_cylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
