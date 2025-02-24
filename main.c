@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/22 21:32:40 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:03:04 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,6 @@ static int	init_mlx_and_image(t_app *app)
 	return (0);
 }
 
-static void	setup_hooks(t_app *app)
-{
-	mlx_hook(app->win, 2, 1L << 0, key_press, app);
-	mlx_hook(app->win, 3, 1L << 1, key_release, app);
-	mlx_hook(app->win, 6, 1L << 6, mouse_move, app);
-	mlx_loop_hook(app->mlx, update_frame, app);
-}
-
 static int	check_number(t_scene scene)
 {
 	if (scene.num_camera > MAX_CAMERA)
@@ -68,16 +60,20 @@ static int	check_number(t_scene scene)
 	return (1);
 }
 
-
 int	main(int argc, char **argv)
 {
 	t_app	app;
 
 	ft_bzero(&app, sizeof(t_app));
 	init_app_config(&app, argc, argv);
-	if (!check_number(app.scene) || app.scene.num_camera == 0 || init_mlx_and_image(&app))
+	if (!check_number(app.scene) || \
+		app.scene.num_camera == 0 \
+		|| init_mlx_and_image(&app))
 		return (1);
-	setup_hooks(&app);
+	mlx_hook(app.win, 2, 1L << 0, key_press, &app);
+	mlx_hook(app.win, 17, 0, handle_close, NULL);
+	update_camera(&app);
+	render_scene(&app);
 	mlx_loop(app.mlx);
 	return (0);
 }

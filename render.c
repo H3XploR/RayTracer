@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:24:30 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/22 18:32:17 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:51:15 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ static void	render_pixel(t_app *app, int x, int y)
 
 void	render_scene(t_app *app)
 {
-	const int	total_pixels = app->win_height * app->win_width;
-	static int	done;
-	static int	progress;
 	int			y;
 	int			x;
 
@@ -53,16 +50,12 @@ void	render_scene(t_app *app)
 		x = 0;
 		while (x < app->win_width)
 		{
-			progress = ((y * app->win_width + x + 1) * 100) / total_pixels;
 			render_pixel(app, x, y);
 			x++;
-			if (!done)
-				printf("\rChargement de l'écran : %d%%  ", progress);
-			else
-				printf("\rTERMINE 				");
-			if (progress >= 100)
-				done = 1;
 		}
 		y++;
+		printf("%d / %d\n", y, app->win_height);
+		mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 	}
+	printf("%d / %d\n", y, app->win_height);
 }

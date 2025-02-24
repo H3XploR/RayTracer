@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/22 21:21:03 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:02:24 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,13 +262,11 @@ void			compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,
 
 //	Peripherique
 int				key_press(int keycode, t_app *app);
-int				key_release(int keycode, t_app *app);
-int				mouse_move(int x, int y, t_app *app);
+int				handle_close(void *param);
 
 //	Render
 void			update_camera(t_app *app);
 void			render_scene(t_app *app);
-int				update_frame(t_app *app);
 
 //	Array
 int				ft_arraylen(char **array);
