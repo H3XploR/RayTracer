@@ -8,7 +8,7 @@ DIR_OBJ = obj
 OBJ = $(addprefix $(DIR_OBJ)/, $(notdir $(SRC:.c=.o)))
 
 CC = cc
-CFLAGS = -fsanitize=address -g3 -Wall -Wextra -Werror
+CFLAGS = -g3 -Wall -Wextra -Werror
 INCLUDES = -I. -Ilibft -Iminilibx-linux
 LDFLAGS = -Llibft -Lminilibx-linux
 LDLIBS = -lft -lmlx -lXext -lX11 -lm -lbsd

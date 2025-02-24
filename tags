@@ -124,7 +124,7 @@ CC	minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
 CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror -g3$/;"	m
-CFLAGS	makefile	/^CFLAGS = -fsanitize=address -g3 -Wall -Wextra -Werror$/;"	m
+CFLAGS	makefile	/^CFLAGS = -g3 -Wall -Wextra -Werror$/;"	m
 CFLAGS	minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
 CHAR	libft/libft.h	/^# define CHAR	/;"	d
@@ -293,6 +293,7 @@ center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_ve
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check_if_max	check.c	/^void	check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
+check_number	main.c	/^static int	check_number(t_scene scene)$/;"	f	typeref:typename:int	file:
 check_shadow_cylinder	shadows.c	/^static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
 check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
 check_shadow_sphere	shadows.c	/^static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
@@ -425,6 +426,8 @@ gnl_ft_strjoin	libft/gnl_utils.c	/^char	*gnl_ft_strjoin(char *s1, char *s2)$/;"	
 gnl_ft_strlen	libft/gnl_utils.c	/^size_t	gnl_ft_strlen(char *s)$/;"	f	typeref:typename:size_t
 gnl_read_fd	libft/gnl.c	/^char	*gnl_read_fd(int fd, char *str)$/;"	f	typeref:typename:char *
 half_dir	miniRT.h	/^	t_vec3		half_dir;$/;"	m	struct:s_calc	typeref:typename:t_vec3
+handle_close	peripherique.c	/^int	handle_close(void *param)$/;"	f	typeref:typename:int
+have_extension	have_extension.c	/^int	have_extension(const char *line)$/;"	f	typeref:typename:int
 height	miniRT.h	/^	float		height;$/;"	m	struct:s_cylinder	typeref:typename:float
 height	minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 hit_point	miniRT.h	/^	t_vec3		hit_point;$/;"	m	struct:s_calc	typeref:typename:t_vec3
@@ -448,6 +451,7 @@ intersect_planes	intersect_objects.c	/^static bool	intersect_planes(const t_ray 
 intersect_sphere	parsing_sphere.c	/^float	intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)$/;"	f	typeref:typename:float
 intersect_spheres	intersect_objects.c	/^static bool	intersect_spheres(const t_ray ray, t_hit *hit, t_sphere *spheres,$/;"	f	typeref:typename:bool	file:
 is_in_shadow	shadows.c	/^bool	is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)$/;"	f	typeref:typename:bool
+isdigit_token	isdigit_token.c	/^int	isdigit_token(char **tokens)$/;"	f	typeref:typename:int
 key_a	miniRT.h	/^	int			key_a;$/;"	m	struct:s_app	typeref:typename:int
 key_d	miniRT.h	/^	int			key_d;$/;"	m	struct:s_app	typeref:typename:int
 key_down	miniRT.h	/^	int			key_down;$/;"	m	struct:s_app	typeref:typename:int
@@ -455,7 +459,6 @@ key_hook	minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_l
 key_left	miniRT.h	/^	int			key_left;$/;"	m	struct:s_app	typeref:typename:int
 key_param	minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 key_press	peripherique.c	/^int	key_press(int keycode, t_app *app)$/;"	f	typeref:typename:int
-key_release	peripherique.c	/^int	key_release(int keycode, t_app *app)$/;"	f	typeref:typename:int
 key_right	miniRT.h	/^	int			key_right;$/;"	m	struct:s_app	typeref:typename:int
 key_s	miniRT.h	/^	int			key_s;$/;"	m	struct:s_app	typeref:typename:int
 key_up	miniRT.h	/^	int			key_up;$/;"	m	struct:s_app	typeref:typename:int
@@ -556,7 +559,6 @@ mlx_xpm_file_to_image	minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_x
 mlx_xpm_to_image	minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
 mlx_xpm_to_image	minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
 mouse_hook	minilibx-linux/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
-mouse_move	peripherique.c	/^int	mouse_move(int x, int y, t_app *app)$/;"	f	typeref:typename:int
 mouse_param	minilibx-linux/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 mouse_sens	miniRT.h	/^	float		mouse_sens;$/;"	m	struct:s_app	typeref:typename:float
 mouse_win1	minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
@@ -658,7 +660,6 @@ screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typ
 screen_x	miniRT.h	/^	float		screen_x;$/;"	m	struct:s_calc	typeref:typename:float
 screen_y	miniRT.h	/^	float		screen_y;$/;"	m	struct:s_calc	typeref:typename:float
 select_final_intersection	parsing_cylinder_utils.c	/^float	select_final_intersection(t_calc *calc)$/;"	f	typeref:typename:float
-setup_hooks	main.c	/^static void	setup_hooks(t_app *app)$/;"	f	typeref:typename:void	file:
 shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
 show	minilibx-linux/Makefile.mk	/^show:$/;"	t
@@ -714,7 +715,6 @@ up	miniRT.h	/^	t_vec3		up;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 update_camera	update_camera.c	/^void	update_camera(t_app *app)$/;"	f	typeref:typename:void
 update_camera_movement	update_camera.c	/^static void	update_camera_movement(t_app *app)$/;"	f	typeref:typename:void	file:
 update_camera_rotation	update_camera.c	/^static void	update_camera_rotation(t_app *app)$/;"	f	typeref:typename:void	file:
-update_frame	frame.c	/^int	update_frame(t_app *app)$/;"	f	typeref:typename:int
 use_xshm	minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 v	miniRT.h	/^	t_vec3		v;$/;"	m	struct:s_calc	typeref:typename:t_vec3
 vec3_add	calcul_de_vecteur.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
