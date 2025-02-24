@@ -292,7 +292,7 @@ camera	miniRT.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_came
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_cylinder	typeref:typename:t_vec3
 center	miniRT.h	/^	t_vec3		center;$/;"	m	struct:s_sphere	typeref:typename:t_vec3
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
-check_if_max	check.c	/^void	check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:void
+check_if_max	check.c	/^int	check_if_max(t_scene scene, const int to_test, const int max)$/;"	f	typeref:typename:int
 check_number	main.c	/^static int	check_number(t_scene scene)$/;"	f	typeref:typename:int	file:
 check_shadow_cylinder	shadows.c	/^static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
 check_shadow_plane	shadows.c	/^static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,$/;"	f	typeref:typename:bool	file:
