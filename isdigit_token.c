@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 18:27:48 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/22 18:28:45 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 01:13:20 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	isdigit_token(char **tokens)
 				&& tokens[i][j] != '-' \
 				&& tokens[i][j] != ',')
 			{
-				printf("%c\n", tokens[i][j]);
-				printf("%p\n", tokens[i]);
 				return (0);
 			}
 		}
