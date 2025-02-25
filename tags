@@ -617,6 +617,7 @@ print_sphere	print_next.c	/^void	print_sphere(t_sphere sphere)$/;"	f	typeref:typ
 print_vec3	print_next.c	/^void	print_vec3(t_vec3 vec)$/;"	f	typeref:typename:void
 printf_fd	libft/printf_fd.c	/^int	printf_fd(int fd, const char *str, ...)$/;"	f	typeref:typename:int
 private_cmap	minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
+problem	miniRT.h	/^	int			problem;$/;"	m	struct:s_scene	typeref:typename:int
 proj	miniRT.h	/^	float		proj;$/;"	m	struct:s_calc	typeref:typename:float
 pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 putnbr_b	libft/printf_fd.c	/^static int	putnbr_b(t_lu n, char *str, int numdig, t_info *info)$/;"	f	typeref:typename:int	file:

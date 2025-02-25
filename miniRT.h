@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 18:35:45 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 19:21:06 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ typedef struct s_scene
 	t_ambient	ambient;
 	t_camera	camera;
 	t_ray		ray;
+	int			problem;
 	int			num_spheres;
 	int			num_planes;
 	int			num_cylinders;

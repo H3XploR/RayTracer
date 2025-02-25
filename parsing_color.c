@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:05:49 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/17 21:25:34 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 19:38:13 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_vec3	parse_color(const char *token, t_scene scene)
 		ft_free_array(token_color);
 		ft_free_array(scene.token_if_exit);
 		ft_putendl_fd("error", 2);
-		free(scene.line_if_exit);
+		ft_free_array(scene.all_file);
 		close(scene.fd_if_exit);
 		exit(1);
 	}
