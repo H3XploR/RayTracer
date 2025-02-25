@@ -269,6 +269,8 @@ all	makefile	/^all: $(NAME)$/;"	t
 all	minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
 all	minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
+all_file	miniRT.h	/^	char		**all_file;$/;"	m	struct:s_scene	typeref:typename:char **
+allocate_memory	ft_realloc.c	/^static void	*allocate_memory(size_t new_size)$/;"	f	typeref:typename:void *	file:
 ambient	miniRT.h	/^	t_ambient	ambient;$/;"	m	struct:s_scene	typeref:typename:t_ambient
 aspect	miniRT.h	/^	float		aspect;$/;"	m	struct:s_calc	typeref:typename:float
 at_exit	minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
@@ -322,6 +324,7 @@ color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int
 compute_cap_intersection	parsing_cylinder_utils.c	/^void	compute_cap_intersection(t_ray ray, t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void
 compute_hit_normal	parsing_cylinder_utils.c	/^void	compute_hit_normal(t_ray ray, t_cylinder cy, t_calc *calc,$/;"	f	typeref:typename:void
 compute_side_intersection	parsing_cylinder_utils.c	/^void	compute_side_intersection(t_cylinder cy, t_calc *calc)$/;"	f	typeref:typename:void
+copy_memory	ft_realloc.c	/^static void	copy_memory(void *dst, void *src, size_t size)$/;"	f	typeref:typename:void	file:
 count_word	libft/ft_split.c	/^static size_t	count_word(char	*str, char c)$/;"	f	typeref:typename:size_t	file:
 counter	libft/libft.h	/^	size_t		counter;$/;"	m	struct:s_info	typeref:typename:size_t
 cp	miniRT.h	/^	t_vec3		cp;$/;"	m	struct:s_calc	typeref:typename:t_vec3
@@ -391,7 +394,7 @@ ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	t
 ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
 ft_putstr_fd	libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
-ft_realloc	libft/ft_realloc.c	/^void	*ft_realloc(void *ptr, size_t new_size)$/;"	f	typeref:typename:void *
+ft_realloc	ft_realloc.c	/^void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)$/;"	f	typeref:typename:void *
 ft_set_digit	libft/ft_itoa.c	/^static void	ft_set_digit(long nbr_digit, long index, char *nbr, long n)$/;"	f	typeref:typename:void	file:
 ft_set_digit	libft/ft_putnbr_fd.c	/^static void	ft_set_digit(long nbr_digit, long n, int fd)$/;"	f	typeref:typename:void	file:
 ft_set_number	libft/ft_itoa.c	/^static void	ft_set_number(char *tab)$/;"	f	typeref:typename:void	file:
@@ -416,6 +419,8 @@ ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
 gc	minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
 gc	minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+get_all_file	config.c	/^static char	**get_all_file(int fd)$/;"	f	typeref:typename:char **	file:
+get_copy_size	ft_realloc.c	/^static size_t	get_copy_size(size_t old_size, size_t new_size)$/;"	f	typeref:typename:size_t	file:
 get_next_line	libft/gnl.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_tokens_secure	parsing_utils.c	/^char	**get_tokens_secure(t_scene scene, const int numObject,$/;"	f	typeref:typename:char **
 get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f

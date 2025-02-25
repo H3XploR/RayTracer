@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 00:34:07 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:35:45 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ typedef struct s_scene
 	int			num_ambient;
 	char		*line_if_exit;
 	char		**token_if_exit;
+	char		**all_file;
 	int			fd_if_exit;
 }				t_scene;
 
@@ -286,4 +287,7 @@ void			print_ambient(t_ambient amb);
 void			print_camera(t_camera cam);
 void			print_scene(t_scene scene);
 
+//	Memoire
+void			*ft_realloc(void *ptr, \
+				size_t old_size, size_t new_size);
 #endif
