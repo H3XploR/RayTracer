@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 02:38:18 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:52:11 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ static int	check_number(t_scene scene)
 
 int	main(int argc, char **argv)
 {
-	t_app	app;
+	t_app	*app;
 
 	ft_bzero(&app, sizeof(t_app));
-	init_app_config(&app, argc, argv);
-	if (!check_number(app.scene) || \
-		app.scene.num_camera == 0 \
-		|| init_mlx_and_image(&app))
+	init_app_config(app, argc, argv);
+	if (!check_number(app->scene) || \
+		app->scene.num_camera == 0 \
+		|| init_mlx_and_image(app))
 		return (1);
-	update_camera(&app);
-	render_scene(&app);
-	mlx_hook(app.win, 2, 1L << 0, key_press, &app);
-	mlx_hook(app.win, 17, 0, handle_close, &app);
+	update_camera(app);
+	render_scene(app);
+	mlx_hook(app.win, 2, 1L << 0, key_press, app);
+	mlx_hook(app.win, 17, 0, handle_close, app);
 	mlx_loop(app.mlx);
 	return (0);
 }
