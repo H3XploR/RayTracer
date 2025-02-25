@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 02:50:49 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:41:28 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ static inline t_scene	parsing_line(char *line, t_scene scene)
 t_scene	load_config(const char *filename)
 {
 	int		fd;
-	char	*line;
+	size_t	len;
+	char	line[999] = {0};
 	t_scene	scene;
 
 	scene = create_scene();
@@ -51,11 +52,12 @@ t_scene	load_config(const char *filename)
 	scene.fd_if_exit = fd;
 	while (1)
 	{
-		line = get_next_line(fd);
-		if (!line)
+		len = read(fd, line, 999);
+		if (!len)
 			break ;
+		if (len > 998)
+			exit(1);
 		scene = parsing_line(line, scene);
-		free(line);
 	}
 	return (scene);
 }

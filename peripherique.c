@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:22:27 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 00:15:35 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:38:46 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	key_press(int keycode, t_app *app)
 
 int	handle_close(void *param)
 {
-	t_app *app;
+	t_app	*app;
 
 	app = (t_app *)param;
 	mlx_destroy_image(app->mlx, app->img);
