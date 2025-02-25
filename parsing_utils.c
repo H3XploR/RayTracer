@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:23:21 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 15:30:42 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:42:45 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**get_tokens_secure(t_scene scene, const int numObject,
 	{
 		ft_free_array(tokens);
 		ft_putendl_fd("error", 2);
+		free(scene.line_if_exit);
 		close(scene.fd_if_exit);
 		exit(1);
 	}
