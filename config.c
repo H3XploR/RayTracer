@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 15:41:28 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:42:48 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ t_scene	load_config(const char *filename)
 {
 	int		fd;
 	size_t	len;
-	char	line[999] = {0};
+	char	line[999];
 	t_scene	scene;
 
+	ft_bzero(line, 999);
 	scene = create_scene();
 	fd = open(filename, O_RDONLY);
 	if (fd <= 0 || !have_extension(filename))
