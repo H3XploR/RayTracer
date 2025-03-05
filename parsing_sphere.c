@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:46:16 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:59:34 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:25:32 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ float	intersect_sphere(t_ray ray, t_sphere s, t_vec3 *hitNormal)
 	calc.sqrt_disc = sqrtf(calc.disc);
 	calc.t0 = (-calc.b - calc.sqrt_disc) / (2 * calc.a);
 	calc.t1 = (-calc.b + calc.sqrt_disc) / (2 * calc.a);
-	if (calc.t0 > 1e-3f)
+	if (calc.t0 > 0.001f)
 		calc.t = calc.t0;
 	else
 		calc.t = calc.t1;
-	if (calc.t < 1e-3f)
+	if (calc.t < 0.001f)
 		return (-1);
 	calc.hit_point = vec3_add(ray.origin, vec3_scale(ray.dir, calc.t));
 	*hitNormal = vec3_normalize(vec3_sub(calc.hit_point, s.center));

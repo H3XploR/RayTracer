@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:49:41 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:50:10 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:24:37 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ float	intersect_plane(t_ray ray, t_plane p, t_vec3 *hitNormal)
 	float	t;
 
 	denom = vec3_dot(p.normal, ray.dir);
-	if (fabs(denom) < 1e-6f)
+	if (fabs(denom) < 0.000001f)
 		return (-1);
 	t = vec3_dot(vec3_sub(p.point, ray.origin), p.normal) / denom;
-	if (t < 1e-3f)
+	if (t < 0.001f)
 		return (-1);
 	*hitNormal = p.normal;
 	return (t);

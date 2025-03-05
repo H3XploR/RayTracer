@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 14:52:51 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:14:09 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ static int	init_app_config(t_app *app, int argc, char **argv)
 	t_scene	scene;
 
 	if (argc > 1)
+	{
 		scene = load_config(argv[1]);
-	app->win_width = WIDTH;
-	app->win_height = HEIGHT;
-	app->scene = scene;
+		app->win_width = WIDTH;
+		app->win_height = HEIGHT;
+		app->scene = scene;
+	}
 	return (0);
 }
 

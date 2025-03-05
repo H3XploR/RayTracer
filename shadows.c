@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:58:42 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:50:54 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:26:08 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,
 		t_scene scene)
 {
-	const float	epsilon = 1e-3f;
+	const float	epsilon = 0.001f;
 	int			i;
 	t_vec3		dummy;
 	float		t;
@@ -36,7 +36,7 @@ static bool	check_shadow_sphere(const t_ray shadow_ray, float max_t,
 static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,
 		t_scene scene)
 {
-	const float	epsilon = 1e-3f;
+	const float	epsilon = 0.001f;
 	int			i;
 	t_vec3		dummy;
 	float		t;
@@ -56,7 +56,7 @@ static bool	check_shadow_plane(const t_ray shadow_ray, float max_t,
 static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,
 		t_scene scene)
 {
-	const float	epsilon = 1e-3f;
+	const float	epsilon = 0.001f;
 	int			i;
 	t_vec3		dummy;
 	float		t;
@@ -75,7 +75,7 @@ static bool	check_shadow_cylinder(const t_ray shadow_ray, float max_t,
 // Fonction principale qui détermine si le point est dans l'ombre
 bool	is_in_shadow(t_vec3 hitPoint, t_vec3 lightPos, t_scene scene)
 {
-	const float	epsilon = 1e-3f;
+	const float	epsilon = 0.001f;
 	t_vec3		to_light;
 	float		max_t;
 	t_vec3		l;

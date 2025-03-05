@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:07:55 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/19 16:47:28 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:19:33 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	intersect_spheres(const t_ray ray, t_hit *hit, t_sphere *spheres,
 	while (i < num_spheres)
 	{
 		t = intersect_sphere(ray, spheres[i], &n);
-		if (t > 1e-3f && t < hit->t)
+		if (t > 0.001f && t < hit->t)
 		{
 			hit->t = t;
 			hit->normal = n;
@@ -50,7 +50,7 @@ static bool	intersect_planes(const t_ray ray, t_hit *hit, t_plane *planes,
 	while (i < num_planes)
 	{
 		t = intersect_plane(ray, planes[i], &n);
-		if (t > 1e-3f && t < hit->t)
+		if (t > 0.001f && t < hit->t)
 		{
 			hit->t = t;
 			hit->normal = n;
@@ -75,7 +75,7 @@ static bool	intersect_cylinders(const t_ray ray, t_hit *hit,
 	while (i < num_cylinders)
 	{
 		t = intersect_cylinder(ray, cylinders[i], &n);
-		if (t > 1e-3f && t < hit->t)
+		if (t > 0.001f && t < hit->t)
 		{
 			hit->t = t;
 			hit->normal = n;
