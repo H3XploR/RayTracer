@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/05 16:27:44 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 17:54:38 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,21 @@ static char	**get_all_file(int fd)
 	char	*line;
 	char	*data;
 	char	**splited;
-	int		first;
+	int		count;
 
-	first = 1;
+	count = 0;
 	line = NULL;
 	data = ft_calloc(1, 1);
 	while (1)
 	{
-		if (!first)
+		if (count > MAX_SPHERES + MAX_PLANES + MAX_CYLINDERS + MAX_LIGHTS + MAX_AMBIENT + MAX_CAMERA)
+		{
+			free(join);
+			ft_putstr_fd("erreur: max element reached\n", 2);
+			close(fd);
+			exit(1);
+		}
+		if (count != 0)
 			data = join;
 		line = get_next_line(fd);
 		if (!line)
@@ -55,7 +62,7 @@ static char	**get_all_file(int fd)
 		join = ft_strjoin(data, line);
 		free(line);
 		free(data);
-		first = 0;
+		count++;
 	}
 	splited = ft_split(join, '\n');
 	free(data);
