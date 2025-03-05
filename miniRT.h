@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/05 14:29:14 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:05:28 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,7 @@ int				check_tokens(char **tokens, int expected);
 int				isdigit_token(char **tokens);
 int				have_extension(const char *line);
 int				check_if_max(t_scene scene, const int to_test, const int max);
+int				check_nb_element(t_scene scene);
 
 //	Intersection
 float			intersect_cylinder(t_ray ray, t_cylinder cy, t_vec3 *hitNormal);
