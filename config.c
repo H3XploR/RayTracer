@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 19:36:04 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:53:12 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_scene	load_config(const char *filename)
 		if (!line)
 			break ;
 		scene = parsing_line(line, scene);
+		
 	}
 	ft_free_array(scene.all_file);
 	return (scene);
