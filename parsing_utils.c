@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:23:21 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 19:37:18 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:12:25 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**get_tokens_secure(t_scene scene, const int numObject,
 	if (!check_tokens(tokens, supposed_nb_token) || !isdigit_token(tokens + 1))
 	{
 		ft_free_array(tokens);
-		ft_putendl_fd("error", 2);
+		ft_putendl_fd("Error\nTokens are bad\n", 2);
 		ft_free_array(scene.all_file);
 		close(scene.fd_if_exit);
 		exit(1);

@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/05 17:54:38 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:10:31 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	**get_all_file(int fd)
 		if (count > MAX_SPHERES + MAX_PLANES + MAX_CYLINDERS + MAX_LIGHTS + MAX_AMBIENT + MAX_CAMERA)
 		{
 			free(join);
-			ft_putstr_fd("erreur: max element reached\n", 2);
+			ft_putstr_fd("Erreur:\n max element reached\n", 2);
 			close(fd);
 			exit(1);
 		}
@@ -95,6 +95,7 @@ t_scene	load_config(const char *filename)
 		if (!check_nb_element(scene))
 		{
 			ft_free_array(scene.all_file);
+			ft_putstr_fd("Error\n Bad number element\n", 2);
 			exit(1);
 		}
 		scene = parsing_line(line, scene);

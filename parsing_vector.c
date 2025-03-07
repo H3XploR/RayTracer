@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:16:01 by yantoine          #+#    #+#             */
-/*   Updated: 2025/02/25 19:37:48 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:12:57 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_vec3	parse_vector(const char *token, t_scene scene)
 	{
 		ft_free_array(token_vector);
 		ft_free_array(scene.token_if_exit);
-		ft_putendl_fd("error", 2);
+		ft_putendl_fd("Error\nBad Tokens", 2);
 		ft_free_array(scene.all_file);
 		close(scene.fd_if_exit);
 		exit(1);
