@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:02:36 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/05 16:05:28 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:04:57 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ typedef struct s_scene
 	t_camera	camera;
 	t_ray		ray;
 	int			problem;
+	int			no;
 	int			num_spheres;
 	int			num_planes;
 	int			num_cylinders;
@@ -164,6 +165,10 @@ typedef struct s_app
 // ----- Calcul
 typedef struct s_calc
 {
+	char		*join;
+	char		*line;
+	char		*data;
+	char		**splited;
 	t_vec3		oc;
 	float		a;
 	float		b;
@@ -206,6 +211,7 @@ typedef struct s_calc
 	t_vec3		view_dir;
 	t_vec3		half_dir;
 	float		spec;
+	int			count;
 
 }				t_calc;
 

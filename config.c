@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:41:17 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/07 16:10:31 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:03:35 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,39 +34,58 @@ static inline t_scene	parsing_line(char *line, t_scene scene)
 	return (scene);
 }
 
+static t_calc	init_calc(void)
+{
+	t_calc	init;
+
+	init.count = 0;
+	init.line = NULL;
+	init.data = ft_calloc(1, 1);
+	return (init);
+}
+
 static char	**get_all_file(int fd)
 {
-	char	*join;
-	char	*line;
-	char	*data;
-	char	**splited;
-	int		count;
+	t_calc	calc;
 
-	count = 0;
-	line = NULL;
-	data = ft_calloc(1, 1);
+	calc = init_calc();
 	while (1)
 	{
-		if (count > MAX_SPHERES + MAX_PLANES + MAX_CYLINDERS + MAX_LIGHTS + MAX_AMBIENT + MAX_CAMERA)
+		if (calc.count > MAX_SPHERES + MAX_PLANES \
+			+ MAX_CYLINDERS + MAX_LIGHTS + MAX_AMBIENT + MAX_CAMERA)
 		{
-			free(join);
+			free(calc.join);
 			ft_putstr_fd("Erreur:\n max element reached\n", 2);
 			close(fd);
 			exit(1);
 		}
-		if (count != 0)
-			data = join;
-		line = get_next_line(fd);
-		if (!line)
+		if (calc.count != 0)
+			calc.data = calc.join;
+		calc.line = get_next_line(fd);
+		if (!calc.line)
 			break ;
-		join = ft_strjoin(data, line);
-		free(line);
-		free(data);
-		count++;
+		calc.join = ft_strjoin(calc.data, calc.line);
+		free(calc.line);
+		free(calc.data);
+		calc.count++;
 	}
-	splited = ft_split(join, '\n');
-	free(data);
-	return (splited);
+	calc.splited = ft_split(calc.join, '\n');
+	return (free(calc.data), calc.splited);
+}
+
+static t_scene	initialisation(int fd, const char *filename)
+{
+	t_scene	scene;
+
+	scene = create_scene();
+	if (fd <= 0 || !have_extension(filename))
+	{
+		printf("Erreur : impossible d'ouvrir %s\n", filename);
+		scene.no = 1;
+		return (scene);
+	}
+	scene.fd_if_exit = fd;
+	return (scene);
 }
 
 // ----- Parsing du fichier de configuration -----
@@ -77,14 +96,10 @@ t_scene	load_config(const char *filename)
 	char	*line;
 	t_scene	scene;
 
-	scene = create_scene();
 	fd = open(filename, O_RDONLY);
-	if (fd <= 0 || !have_extension(filename))
-	{
-		printf("Erreur : impossible d'ouvrir %s\n", filename);
+	scene = initialisation(fd, filename);
+	if (scene.no == 1)
 		return (scene);
-	}
-	scene.fd_if_exit = fd;
 	scene.all_file = get_all_file(fd);
 	i = -1;
 	while (scene.all_file[++i])
@@ -95,11 +110,10 @@ t_scene	load_config(const char *filename)
 		if (!check_nb_element(scene))
 		{
 			ft_free_array(scene.all_file);
-			ft_putstr_fd("Error\n Bad number element\n", 2);
+			ft_putstr_fd("Error\n Bad number element\n", 1);
 			exit(1);
 		}
 		scene = parsing_line(line, scene);
 	}
-	ft_free_array(scene.all_file);
-	return (scene);
+	return (ft_free_array(scene.all_file), scene);
 }

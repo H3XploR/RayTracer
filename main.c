@@ -6,7 +6,7 @@
 /*   By: yantoine <yantoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:54:03 by yantoine          #+#    #+#             */
-/*   Updated: 2025/03/05 14:14:09 by yantoine         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:53:05 by yantoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ int	main(int argc, char **argv)
 	if (!check_number(app.scene) || \
 		app.scene.num_camera == 0 \
 		|| init_mlx_and_image(&app))
+	{
+		ft_putstr_fd("Erreur: \n", 2);
 		return (1);
+	}
 	update_camera(&app);
 	render_scene(&app);
 	mlx_hook(app.win, 2, 1L << 0, key_press, &app);
