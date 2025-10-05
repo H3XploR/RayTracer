@@ -13,16 +13,18 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "float.h"
+# include <cfloat>
+# include <cmath>
+# include <cstdio>
+# include <cstdlib>
+# include <cstring>
+# include <fcntl.h>
+
+extern "C" {
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
-# include <fcntl.h>
-# include <math.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
+}
 
 // ----- Taille ecran ----
 # define WIDTH 640

@@ -32,8 +32,9 @@ static void	update_camera_rotation(t_app *app)
 	app->scene.camera.cam_dir.z = -cosf(app->scene.camera.pitch)
 		* cosf(app->scene.camera.yaw);
 	app->scene.camera.cam_dir = vec3_normalize(app->scene.camera.cam_dir);
-	app->scene.camera.right = (t_vec3){cosf(app->scene.camera.yaw), 0,
-		sinf(app->scene.camera.yaw)};
+	app->scene.camera.right.x = cosf(app->scene.camera.yaw);
+	app->scene.camera.right.y = 0;
+	app->scene.camera.right.z = sinf(app->scene.camera.yaw);
 	app->scene.camera.right = vec3_normalize(app->scene.camera.right);
 	app->scene.camera.up = vec3_normalize(vec3_cross(app->scene.camera.right,
 				app->scene.camera.cam_dir));

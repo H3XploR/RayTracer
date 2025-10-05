@@ -3,12 +3,12 @@ NAME = miniRT
 MINILIBX = minilibx-linux/libmlx.a
 LIBFT = libft/libft.a
 
-SRC = $(wildcard *.c)
+SRC = $(wildcard *.cpp)
 DIR_OBJ = obj
-OBJ = $(addprefix $(DIR_OBJ)/, $(notdir $(SRC:.c=.o)))
+OBJ = $(addprefix $(DIR_OBJ)/, $(notdir $(SRC:.cpp=.o)))
 
-CC = cc
-CFLAGS = -g3 -Wall -Wextra -Werror
+CC = g++
+CFLAGS = -g3 -Wall -Wextra -Werror -std=c++11
 INCLUDES = -I. -Ilibft -Iminilibx-linux
 LDFLAGS = -Llibft -Lminilibx-linux
 LDLIBS = -lft -lmlx -lXext -lX11 -lm -lbsd
@@ -16,7 +16,7 @@ LDLIBS = -lft -lmlx -lXext -lX11 -lm -lbsd
 $(NAME): $(OBJ) $(LIBFT) $(MINILIBX)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(NAME) $(OBJ) $(LDLIBS)
 
-$(DIR_OBJ)/%.o: %.c | $(DIR_OBJ)
+$(DIR_OBJ)/%.o: %.cpp | $(DIR_OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(DIR_OBJ):
