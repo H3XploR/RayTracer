@@ -1,4 +1,7 @@
 RayTracer est un projet qui consiste à créer un programme de lancer de rayons (ray tracing) capable de générer des images photoréalistes en simulant le trajet de la lumière. L'objectif principal est de développer un moteur de rendu qui calcule les interactions de la lumière avec des objets virtuels pour produire des images en deux dimensions.
+
+**Note:** Cette branche (`cpp-version`) contient l'implémentation en C++ du projet RayTracer. La version originale en C est disponible sur la branche principale.
+
 Voici quelques caractéristiques clés de RayTracer :
 
 

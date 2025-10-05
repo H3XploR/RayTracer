@@ -29,5 +29,9 @@ t_vec3	vec3_normalize(t_vec3 a)
 
 t_vec3	vec3_mul(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){a.x * b.x, a.y * b.y, a.z * b.z});
+	t_vec3 result;
+	result.x = a.x * b.x;
+	result.y = a.y * b.y;
+	result.z = a.z * b.z;
+	return result;
 }

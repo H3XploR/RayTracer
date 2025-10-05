@@ -16,17 +16,29 @@
 
 t_vec3	vec3_add(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){a.x + b.x, a.y + b.y, a.z + b.z});
+	t_vec3 result;
+	result.x = a.x + b.x;
+	result.y = a.y + b.y;
+	result.z = a.z + b.z;
+	return result;
 }
 
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){a.x - b.x, a.y - b.y, a.z - b.z});
+	t_vec3 result;
+	result.x = a.x - b.x;
+	result.y = a.y - b.y;
+	result.z = a.z - b.z;
+	return result;
 }
 
 t_vec3	vec3_scale(t_vec3 a, float s)
 {
-	return ((t_vec3){a.x * s, a.y * s, a.z * s});
+	t_vec3 result;
+	result.x = a.x * s;
+	result.y = a.y * s;
+	result.z = a.z * s;
+	return result;
 }
 
 float	vec3_dot(t_vec3 a, t_vec3 b)
@@ -36,6 +48,9 @@ float	vec3_dot(t_vec3 a, t_vec3 b)
 
 t_vec3	vec3_cross(t_vec3 a, t_vec3 b)
 {
-	return ((t_vec3){a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y
-		- a.y * b.x});
+	t_vec3 result;
+	result.x = a.y * b.z - a.z * b.y;
+	result.y = a.z * b.x - a.x * b.z;
+	result.z = a.x * b.y - a.y * b.x;
+	return result;
 }
